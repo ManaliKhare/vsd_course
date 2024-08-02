@@ -51,11 +51,28 @@ Files inside the spice directory: Spice netlists for the cells.
 a. package require openlane 0.9
 ![image](https://github.com/user-attachments/assets/5eadd84e-49cb-4919-96b8-b6fa269dd47e)
 
-b. design setup step: prep -design <design_name> - This step merges the cell lef and tech lef, sets the PDK path, sources config.tcl file
+b. design setup step: prep -design <design_name> - This step merges the cell lef and tech lef, sets the PDK path, sources config.tcl file, creates a run directory with the present date.
 ![image](https://github.com/user-attachments/assets/c3954947-8216-45bf-9743-1ac4a6519667)
 
+Inside the runs directory created after prep design, there is 
+![image](https://github.com/user-attachments/assets/bdf62bda-ba84-4ef6-b754-446a20910bf4)
 
+Everything except tmp directory would be initially empty. tmp directory stores the temporary files. it also has the merged.lef file.
 
+![image](https://github.com/user-attachments/assets/ac9dcd6d-1b5b-45e2-8c8a-4130e2052113)
 
+A config.tcl file is also created inside the runs/<date> directory which has info on the pdk paths and all other input file paths, and the final settings used in the run.
+![image](https://github.com/user-attachments/assets/2b4a9af4-0c69-4ae3-b3bd-5066a0524de9)
 
+c. run_synthesis:
+This command runs the sysnthesis on the RTL netlist.
 
+Inside the results/synthesis directory. There is the synthesised netlist.
+![image](https://github.com/user-attachments/assets/4c62fd4a-7090-4e83-9661-54289c9388e1)
+
+Calculate the flop ratio = Total no. of DFF/ Total no. of cells in design = 1613/14876 = 0.1084 = 10.84%
+
+![image](https://github.com/user-attachments/assets/aac65c60-bc60-4004-ae8d-e2a2c9f1825b)
+
+Inside the reports/synthesis directory. The last generated yosys report gives the synthesis stats.
+![image](https://github.com/user-attachments/assets/8c01b1a4-fb81-4ea3-8343-a4d285d984ce)
