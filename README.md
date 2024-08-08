@@ -76,3 +76,6 @@ Calculate the flop ratio = Total no. of DFF/ Total no. of cells in design = 1613
 
 Inside the reports/synthesis directory. The last generated yosys report gives the synthesis stats.
 ![image](https://github.com/user-attachments/assets/8c01b1a4-fb81-4ea3-8343-a4d285d984ce)
+
+# vsd_course Day 2
+
