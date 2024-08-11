@@ -111,7 +111,18 @@ Decaps and Tap cells placemnet:
 Standard cells placement:
 ![image](https://github.com/user-attachments/assets/fee4cfad-07df-4284-b8cc-298ddf9e36b8)
 
+##Placement & Routing
 
+1. Bind netlist with physical cells:
+* In reality, each gate in netlist is represented as a rectangular box with specific width and height.
+* Library consists of information related to the sizing of the cell, the delay, and the when conditions.
+* Additoionally, Library also offers various flavors of the same cell i.e. cell with a bigger size, hence lesser delay, hence faster.
+
+2. Placement of cells:
+* 
+3. Optimize Placement:
+* This is the stage where we estimate the wire length and capacitance and insert repeaters accordingly.
+4. 
 
 
 
