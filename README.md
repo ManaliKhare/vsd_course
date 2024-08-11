@@ -99,3 +99,23 @@ Opening magic to view the floorplan:
 
 ![image](https://github.com/user-attachments/assets/cc5acf66-7d4b-4de5-a287-66c078d715a4)
 
+Horizontal IO pins are at Metal 3:
+![image](https://github.com/user-attachments/assets/6b485381-7862-455e-b6a2-51596cffda73)
+
+Vertical IO pins are at Metal 2:
+![image](https://github.com/user-attachments/assets/708df43d-f60e-4ecf-bacb-dcbae8b9c4ff)
+
+Decaps and Tap cells placemnet:
+![image](https://github.com/user-attachments/assets/5ca6f68b-1089-4529-921c-793dc8b3c1bb)
+
+Standard cells placement:
+![image](https://github.com/user-attachments/assets/fee4cfad-07df-4284-b8cc-298ddf9e36b8)
+
+
+
+
+
+
+
+
+
