@@ -93,3 +93,9 @@ Area of the chip = 660.685 um x 671.405 um = 4,43,587.212425 um2
 
 ![image](https://github.com/user-attachments/assets/4cd58187-0008-4b61-8b79-73626aeffed6)
 
+Opening magic to view the floorplan:
+
+![image](https://github.com/user-attachments/assets/e6d5fe69-1d3f-4a4d-9320-20c330175900)
+
+![image](https://github.com/user-attachments/assets/cc5acf66-7d4b-4de5-a287-66c078d715a4)
+
