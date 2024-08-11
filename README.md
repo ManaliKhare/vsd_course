@@ -123,9 +123,12 @@ Standard cells placement:
   
 3. Optimize Placement:
 * This is the stage where we estimate the wire length and capacitance and insert repeaters accordingly.
-* Repeaters are buffers that recondition the original signal, and send it ahead. They are placed to account for the loss of signal due to long routes.
+* Repeaters are buffers that recondition the original signal, and send it ahead to next stage. They are placed to account for the loss of signal due to long routes.
 * This is called signal integrity.
-  
+* However, adding repeaters will cost more area.
+  ![image](https://github.com/user-attachments/assets/f4f6ab36-4ebf-450e-8331-fc8a73ebc4b5)
+* Once the placement is optimized after adding buffers, do a quick setup timing analysis considering ideal clock, to find if the placement of cells done is reasonable.
+
 4. 
 
 
