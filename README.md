@@ -111,7 +111,7 @@ Decaps and Tap cells placemnet:
 Standard cells placement:
 ![image](https://github.com/user-attachments/assets/fee4cfad-07df-4284-b8cc-298ddf9e36b8)
 
-##Placement & Routing
+## Placement & Routing
 
 1. Bind netlist with physical cells:
 * In reality, each gate in netlist is represented as a rectangular box with specific width and height.
@@ -127,9 +127,17 @@ Standard cells placement:
 * This is called signal integrity.
 * However, adding repeaters will cost more area.
   ![image](https://github.com/user-attachments/assets/f4f6ab36-4ebf-450e-8331-fc8a73ebc4b5)
-* Once the placement is optimized after adding buffers, do a quick setup timing analysis considering ideal clock, to find if the placement of cells done is reasonable.
+* Once the placement is optimized after adding buffers, do a quick setup timing analysis considering ideal clock, to find if the placement of cells done is reasonable and meets the timing specs.
 
-4. 
+## Library characterization and Modeling
+
+![image](https://github.com/user-attachments/assets/e9ca87a6-ef5d-454d-a934-91c0648abe95)
+
+## Congestion aware placement using RePLace
+![image](https://github.com/user-attachments/assets/c26997fd-3d1d-4689-b052-a6de151d18ec)
+
+
+
 
 
 
