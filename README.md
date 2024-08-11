@@ -119,9 +119,13 @@ Standard cells placement:
 * Additoionally, Library also offers various flavors of the same cell i.e. cell with a bigger size, hence lesser delay, hence faster.
 
 2. Placement of cells:
-* 
+* Place the cells such that the input cells are closer to the input ports and output cells are closer to the output ports.
+  
 3. Optimize Placement:
 * This is the stage where we estimate the wire length and capacitance and insert repeaters accordingly.
+* Repeaters are buffers that recondition the original signal, and send it ahead. They are placed to account for the loss of signal due to long routes.
+* This is called signal integrity.
+  
 4. 
 
 
