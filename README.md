@@ -79,3 +79,8 @@ Inside the reports/synthesis directory. The last generated yosys report gives th
 
 # vsd_course Day 2
 
+run_floorplan:
+
+Standard cell placement happens not in floorplan but during placement.
+
+![image](https://github.com/user-attachments/assets/5f0d729b-1247-4eda-949e-c1e039d7dea9)
