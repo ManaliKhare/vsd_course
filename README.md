@@ -79,8 +79,17 @@ Inside the reports/synthesis directory. The last generated yosys report gives th
 
 # vsd_course Day 2
 
+Utilization Factor = {Area of the netlist/Area of the chip}
+
 run_floorplan:
 
 Standard cell placement happens not in floorplan but during placement.
 
 ![image](https://github.com/user-attachments/assets/5f0d729b-1247-4eda-949e-c1e039d7dea9)
+
+Dimensions of the chip = 660685/1000 x 671405/1000 = 660.685 um x 671.405 um
+
+Area of the chip = 660.685 um x 671.405 um = 4,43,587.212425 um2 
+
+![image](https://github.com/user-attachments/assets/4cd58187-0008-4b61-8b79-73626aeffed6)
+
