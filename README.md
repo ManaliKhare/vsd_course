@@ -133,6 +133,8 @@ Standard cells placement:
 
 ![image](https://github.com/user-attachments/assets/e9ca87a6-ef5d-454d-a934-91c0648abe95)
 
+* Library files model the gates in such a fashion so that it would be understood by the EDA tool. It describes the functionality, timing characteristics of the gates.
+
 ## Congestion aware placement using RePLace
 ![image](https://github.com/user-attachments/assets/c26997fd-3d1d-4689-b052-a6de151d18ec)
 
