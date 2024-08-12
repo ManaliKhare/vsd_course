@@ -138,7 +138,22 @@ Standard cells placement:
 ## Congestion aware placement using RePLace
 ![image](https://github.com/user-attachments/assets/c26997fd-3d1d-4689-b052-a6de151d18ec)
 
+* In placement, first step is global placement which focuses on reductin of wire length (HPWL)
+* HPWL - Half Parameter Wire Length , OVFL - Overflow
+* Placement ensures that standard cells are placed correctly in standard cell rows.
+* PDN happens after CTS
 
+
+## Cell design and characterization flows:
+
+1. Inputs for cell design flow:
+* Library files - Library has cells with diff functionality &  different sizes & different Threshold voltages.
+* Inputs for cell design, eg Inverter - PDK (Process Design Kits) given by Foundry which has DRC & LVS rules (Tech files), SPICE models (), libs and user defined specs
+![image](https://github.com/user-attachments/assets/1075cc17-bb41-4105-a492-b2c0656c7bd9)
+
+* User defined specs: Cell height - Separation between the power and ground rail
+2. 
+  
 
 
 
