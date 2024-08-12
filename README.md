@@ -157,8 +157,16 @@ Standard cells placement:
    - Supply Voltage - Operating voltage of chip, according to the supply voltage library developer has to design a cell which will operate at given supply voltage, takinmg care of the noise margin levels
    - Metal layers
    - Pin locations
+   - Drawn gate length
   
-2. 
+2. Design steps:
+* Circuit design
+   - Implement the function
+   - Decide the sizing of the PMOS & NMOS, mainly to satisfy the equation Idp + Idn = 0 , Idp
+     - Idp - Drain current of PMOS, Idn - Drain current of NMOS
+* Layout design - 
+* Characterization - 
+3. 
   
 
 
