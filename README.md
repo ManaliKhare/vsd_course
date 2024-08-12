@@ -151,7 +151,13 @@ Standard cells placement:
 * Inputs for cell design, eg Inverter - PDK (Process Design Kits) given by Foundry which has DRC & LVS rules (Tech files), SPICE models (), libs and user defined specs
 ![image](https://github.com/user-attachments/assets/1075cc17-bb41-4105-a492-b2c0656c7bd9)
 
-* User defined specs: Cell height - Separation between the power and ground rail
+* User defined specs:
+   - Cell-height - Separation between the power and ground rail
+   - Cell-width - Decided by the drive strength of the cell
+   - Supply Voltage - Operating voltage of chip, according to the supply voltage library developer has to design a cell which will operate at given supply voltage, takinmg care of the noise margin levels
+   - Metal layers
+   - Pin locations
+  
 2. 
   
 
