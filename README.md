@@ -163,16 +163,39 @@ Standard cells placement:
 * Circuit design
    - Implement the function
    - Decide the sizing of the PMOS & NMOS, mainly to satisfy the equation Idp + Idn = 0 , Idp
-     - Idp - Drain current of PMOS, Idn - Drain current of NMOS
-* Layout design - 
-* Characterization - 
-3. 
+     - Idp - Drain current of PMOS, Idn - Drain current of NMOS   
+   - Output of this step is CDL file - Circuit Description Language
+* Layout design - Euler's path -> Stick diagram -> Layout
+   - ![image](https://github.com/user-attachments/assets/59173168-a6be-46bd-ac98-1416467dccc2)
+   - ![image](https://github.com/user-attachments/assets/039c3535-cf45-46d1-9775-0de560696290)
+   - Layout design - Magic open source layout design tool
+   - Extract the RLC parasitics from the layout 
+
+* Characterization -
+   - ![image](https://github.com/user-attachments/assets/8c5a264e-8320-43a0-8af7-8be0f0506dc3)
+   - ![image](https://github.com/user-attachments/assets/f5839002-a72d-4b09-a8e5-bdd13d51c444)
+   - ![image](https://github.com/user-attachments/assets/54a349ce-eea9-4d6f-a986-e8f844a7f40c)
+
+3. Output - CDL, GDSII, LEF, Extracted spice netlist (.cir), timing .libs, noise .libs, power .libs, function
   
+## Timing Characterization
+![image](https://github.com/user-attachments/assets/07a5f490-b027-4818-ba4f-9ead063437f4)
 
+Propagation delay : out_rise_thr - in_rise_thr & out_fall_thr - in_fall_thr
 
+![image](https://github.com/user-attachments/assets/ffda83d9-ed92-41cd-b39d-70cf1e09c1a1)
+   - Choosing the right threshold points is important to avoid negative propagation delays.
+   - Also, huge wire delays due to long routes can cause negative delays which needs to be rectified.
+![image](https://github.com/user-attachments/assets/a1cbe3b4-a3d7-46d2-bb30-35f35bc70130)
 
+# vsd_course Day 3
 
+## Changing the variable on the fly and rerun:
+Changing the IO pins placement mode from 1 to 2 and seeing the difference in the IO pins placement.
+With mode 1, the pins are placed equidistant:
+![image](https://github.com/user-attachments/assets/a77b9cc1-72e1-4d65-a1e6-21d6558b4371)
 
+With mode 2 set on the fly, the IO pins placement changes
 
 
 
