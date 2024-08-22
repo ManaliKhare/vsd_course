@@ -224,5 +224,24 @@ With mode 2 set on the fly, the IO pins placement changes
   ![image](https://github.com/user-attachments/assets/ba8d204b-f216-45d9-a132-da11ae95e025)
      - copy the sky130A.tech file to the cloned directory
        ![image](https://github.com/user-attachments/assets/5a11d6fe-7c31-47c1-a44e-83c291d79fa5)
+     - Open magic tool to check CMOS inv layout ![image](https://github.com/user-attachments/assets/697c8580-ecdd-4ad4-a393-6c614e1742bb)
+     - CMOS inv layout looks like below, named as sky130_inv
+       ![image](https://github.com/user-attachments/assets/e2f12492-f61b-4805-a802-9dc6d39fdb31)
+
+- CMOS Fabrication Process : 16 Mask CMOS process
+   1. Selecting a substrate: P type substrate with a doping level less than the well doping. Doping is 10^15cm-3, orientation 100
+   2. Creating the active regions for transistors:
+        - Isolation is required for the pockets
+        - Deposit 40nm Silicon dioxide SiO2 & 80nm od Silicon Nitrie Si3N4 & 1um of photoresist. Masks allow some regions of photoresist to be exposed to UV light which are later washed off to get desired patterns.
+        - Later the remainig photoresist is removed chemically and the Si wafer is put in oxidation furnace for SiO2 desposition in the gaps which will later act as isolation between two MOS devices (Field oxide). The process is called LOCOS - Local Oxidation of Silicon
+        - The Si3N4 is removed in hot phosphoric acid.
+          ![image](https://github.com/user-attachments/assets/4bb796d3-d9c3-417a-b07d-f61230b7bd16)
+
+ 
+   3. 
+
+
+       
+
 
 
