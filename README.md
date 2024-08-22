@@ -218,3 +218,11 @@ With mode 2 set on the fly, the IO pins placement changes
 - Plot Vout & Vin overlapping and find the time diff when 50% Vout - 50% Vin
 - When Wp/Lp = Wn/Ln = 1.5, Vm = 0.99V and Rise delay = 148ps and Fall delay = 71ps.
 ![image](https://github.com/user-attachments/assets/7bb94da7-e630-43ec-ac7b-8ec24ab8eae2)
+
+- Clone the setup from github
+  ![image](https://github.com/user-attachments/assets/260713b4-b548-453b-afd7-ab49acfc4c35)
+  ![image](https://github.com/user-attachments/assets/ba8d204b-f216-45d9-a132-da11ae95e025)
+     - copy the sky130A.tech file to the cloned directory
+       ![image](https://github.com/user-attachments/assets/5a11d6fe-7c31-47c1-a44e-83c291d79fa5)
+
+
