@@ -240,7 +240,20 @@ With mode 2 set on the fly, the IO pins placement changes
         - The Si3N4 is removed in hot phosphoric acid.
           ![image](https://github.com/user-attachments/assets/8fb5ede9-a4a9-4ed7-938b-c0b53426c39f)
 
-   3. 
+   3. N-well & P-well fabrication:
+        - We will protect one active area with a photoresist and mask2 and expose the other active area.
+        - Create P-well using Boron ion implantation (high energy impantation 200keV)
+          ![image](https://github.com/user-attachments/assets/1c995b7e-2cec-44b9-84ac-fc06f4e685f9)
+        - Next we will use Mask3 to protect the first active and expose 2nd active to form N-well. Ion implantation of Phosphorous done for N-well.
+        - Next put the substrate in a drive-in furnace at 1100 Degree for ~6hrs, to diffuse Boron and Phosphorous ions deeper in the p-substrate to form twin wells.
+          ![image](https://github.com/user-attachments/assets/c3694001-e18c-4d90-ad24-ba9871516c5e)
+
+   4. Formation of Gate terminal:
+        - Doping concentration and Oxide capacitance directly impacts the threshold voltage Vt. Vt is applied at Gate terminal
+          ![image](https://github.com/user-attachments/assets/93f7bf26-21aa-4bd2-a9f7-2e935fb2decc)
+         - 
+
+
 
 
        
