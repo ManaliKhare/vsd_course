@@ -251,7 +251,19 @@ With mode 2 set on the fly, the IO pins placement changes
    4. Formation of Gate terminal:
         - Doping concentration and Oxide capacitance directly impacts the threshold voltage Vt. Vt is applied at Gate terminal
           ![image](https://github.com/user-attachments/assets/93f7bf26-21aa-4bd2-a9f7-2e935fb2decc)
-         - 
+         - To maintain the doping concentration a low energy Boron is implanted in pwell and Arsenic in nwell Using Mask4 & Mask5 respectively.
+           ![image](https://github.com/user-attachments/assets/5e28e9cd-1ffc-4e82-a602-69d283c384f9)
+           ![image](https://github.com/user-attachments/assets/463b7915-90f3-4072-9ced-9e054b02876f)
+
+         - The damaged SiO2 is then stripped off using dilute hydrofluoric acid (HF) solution and a new high quality oxide is regrown of same thickness ~10nm (as per Vt required)
+         - For gate, deposit ~400nm thick poly-silicon layer on Oxide and dope with Arsenic for low sheet resistance
+           ![image](https://github.com/user-attachments/assets/12c7c2f5-a6b4-4be3-9b37-74c09ca7218f)
+
+         - Using Mask6, form the gates for nmos & pmos.
+           ![image](https://github.com/user-attachments/assets/cd6d1152-babb-4454-b5b0-b5f4eace6c93)
+           ![image](https://github.com/user-attachments/assets/236587d8-647e-46cc-a22d-91ae582e59b6)
+
+
 
 
 
