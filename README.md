@@ -198,4 +198,23 @@ With mode 1, the pins are placed equidistant:
 With mode 2 set on the fly, the IO pins placement changes
 
 
+## Spice deck creation for CMOS inverter
+![image](https://github.com/user-attachments/assets/f1f95501-d4b5-4452-a8e6-06d480eea577)
 
+![image](https://github.com/user-attachments/assets/0e9f85d7-a357-411b-ba1d-a3cd47992f5f)
+![image](https://github.com/user-attachments/assets/d172445a-18bc-4a5d-848d-25e794e6ba07)
+.mod is the model file for NMOS &PMOS which has all the parameters for the mos devices.
+
+![image](https://github.com/user-attachments/assets/38095a67-570f-4de2-b0c8-4046a58df8b5)
+
+
+![image](https://github.com/user-attachments/assets/5459785d-d158-4602-8735-92f5d9ee9453)
+- CMOS inverter is a robust device. Inverter characteristics are maintained across all devic sizes.
+- Switching threshold- Point where Vin = Vout
+- Switching throshold is computed by drawing a 45degree line on the dc transfer characteristics and finding the intersection point.
+![image](https://github.com/user-attachments/assets/c4ce3875-4af7-4412-bd59-128e4ed3edb6)
+![image](https://github.com/user-attachments/assets/922b689d-f4c1-4318-9f80-f275f172d4cf)
+- The rise and fall delay of cmos inv can be calculated by doing a transient analysis and using a pulse signal at the input Vin.
+- Plot Vout & Vin overlapping and find the time diff when 50% Vout - 50% Vin
+- When Wp/Lp = Wn/Ln = 1.5, Vm = 0.99V and Rise delay = 148ps and Fall delay = 71ps.
+![image](https://github.com/user-attachments/assets/7bb94da7-e630-43ec-ac7b-8ec24ab8eae2)
