@@ -293,7 +293,9 @@ With mode 2 set on the fly, the IO pins placement changes
 
         - As we go from bottom to top, thickness of interconnect increases.
         - For last metal contact formation, Si3N4 dielectric is used instead of SiO2 as Si3N4 is stronger.
-        - 
+     
+## Sky130 basic layers layout
+          
  
      
       
