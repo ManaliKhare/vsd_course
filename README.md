@@ -262,6 +262,26 @@ With mode 2 set on the fly, the IO pins placement changes
          - Using Mask6, form the gates for nmos & pmos.
            ![image](https://github.com/user-attachments/assets/cd6d1152-babb-4454-b5b0-b5f4eace6c93)
            ![image](https://github.com/user-attachments/assets/236587d8-647e-46cc-a22d-91ae582e59b6)
+   5. Lightly doped drain
+        - P+, P-, N doping for PMOS in nwell & N+, N-, P doping profile in pwell for NMOS is needed
+        - Lightly doped drain is to control hot electron effect and short channel effect
+        - Mask7 protects Nwell and dopes the Pwell with N- for LDD NMOS, Mask8 protects Pwell and dopes the Nwell with P- for PMOS
+          ![image](https://github.com/user-attachments/assets/7f9d30f6-27ac-4dcc-b745-9aed19d413e0)
+          ![image](https://github.com/user-attachments/assets/da82409c-a7c0-4acc-bd31-f5db354dea93)
+        - Spacers are deposited for protecting the lightly doped regions near the gate.
+          ![image](https://github.com/user-attachments/assets/5a2c4d4f-08ea-4fca-a1df-8bebe8a74c75)
+
+   6. Source Drain formation
+         - Thin layer of screen oxide is added to avoid channeling during s/d implants.
+         - Mask9 protects Nwell and does Arsenic N+ in Pwell for Nmos formation. Spacers help to keep the previous lightly doped N- intact thus enabling N+,N-,P doping profile.
+         - Mask9 protects Pwell and does Boron P+ in Nwell for Pmos formation. Spacers help to keep the previous lightly doped P- intact thus enabling P+,P-,N doping profile.
+         - Expose to high tempearture furnace for high temp annealing.
+     
+   7. Contacts and interconnect formation
+           
+     
+      
+
 
 
 
