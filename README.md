@@ -233,11 +233,13 @@ With mode 2 set on the fly, the IO pins placement changes
    2. Creating the active regions for transistors:
         - Isolation is required for the pockets
         - Deposit 40nm Silicon dioxide SiO2 & 80nm od Silicon Nitrie Si3N4 & 1um of photoresist. Masks allow some regions of photoresist to be exposed to UV light which are later washed off to get desired patterns.
-        - Later the remainig photoresist is removed chemically and the Si wafer is put in oxidation furnace for SiO2 desposition in the gaps which will later act as isolation between two MOS devices (Field oxide). The process is called LOCOS - Local Oxidation of Silicon
-        - The Si3N4 is removed in hot phosphoric acid.
           ![image](https://github.com/user-attachments/assets/4bb796d3-d9c3-417a-b07d-f61230b7bd16)
+        - Later the remainig photoresist is removed chemically and the Si wafer is put in oxidation furnace for SiO2 desposition in the gaps which will later act as isolation between two MOS devices (Field oxide). The process is called LOCOS - Local Oxidation of Silicon
+          
+          ![image](https://github.com/user-attachments/assets/0953a52a-f294-47b6-8f9b-30e9682f01e6)
+        - The Si3N4 is removed in hot phosphoric acid.
+          ![image](https://github.com/user-attachments/assets/8fb5ede9-a4a9-4ed7-938b-c0b53426c39f)
 
- 
    3. 
 
 
