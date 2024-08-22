@@ -278,7 +278,23 @@ With mode 2 set on the fly, the IO pins placement changes
          - Expose to high tempearture furnace for high temp annealing.
      
    7. Contacts and interconnect formation
-           
+        - Etch the screening oxide using HF, to expose source drain for forming contacts.
+        - Now deposit Titanium on wafer through sputtering. Ti metal is hit with Argon gases which causes Ti will get sputtered/emitted out and get deposited into the substrate.
+         - Ti is deposited uniformly everywhere. Now the wafer is heated at about 650 to 700 degrees C in N2 ambient for 60 seconds. TiSi2 is a low resistant material that can be used for connectivity. Also TiN is formed due to the ambient N present, which is used for local connections. It has higher resistivity can be used for nmos & pmos drain connections.
+         - Mask11 is used now to etch out the unwanted TiN using RCA cleaning. RCA solution is H2O:NH4OH:H2O2 = 5:1:1
+          ![image](https://github.com/user-attachments/assets/61668ca7-1ecc-40a4-ab96-f15287c6c18f)
+   8. Higher level metal formation
+        - Deposit thick SiO2 of 1um doped with B or P, then do CMP (chemical mechanical polishing) to planarize surface
+        - Drilling contact holes using lithography obviously, using Mask12 and deposit TiN- TiN acts as a very good adhesion layer for SiO2 and barrier layer between bottom and top interconnects.
+        - Next is blanket deposition of tungsten and then CMP to planarise it.
+        - After that is blanket deposition of Aluminium and using Mask13 enable Aluminium connectivity to above metal stack.
+        - Use Mask 14 to drill contact holes, repeat previous steps like TiN depostion, Tungsten and Al.
+          ![image](https://github.com/user-attachments/assets/a5d24069-b629-4486-93bc-b1582d028206)
+
+        - As we go from bottom to top, thickness of interconnect increases.
+        - For last metal contact formation, Si3N4 dielectric is used instead of SiO2 as Si3N4 is stronger.
+        - 
+ 
      
       
 
