@@ -404,14 +404,23 @@ nsubstrate -> nsub contcat-> loacali -> licon -> metal1
 
 ![image](https://github.com/user-attachments/assets/26ffa67c-a5eb-4f77-bbfb-2a40e5db304a)
 
- 3. As seen, the distance between npolyres and poly layer is 0.21um which is less than 0.48 um and it should be flagged as DRC violaition. However, it is not shown as DRC violation. Reason being the sky130.tech file does not have this spacing rule included.
+ 3. As seen, the distance between npolyres and poly layer is 0.21um which is less than 0.48 um and it should be flagged as DRC violaition. However, it is not shown as DRC violation. Reason being the sky130A.tech file does not have this spacing rule included.
 
 ![image](https://github.com/user-attachments/assets/713292ac-b02b-44aa-bd2f-c7bd874a29e6)
 
-      
+ 4. Updating poly.9 rule in sky130A.tech. Adding allpolynonres as it's an alias for *poly
 
+![image](https://github.com/user-attachments/assets/e7d6df13-adfa-479c-9dee-8e9a54dbe5ee)
+![image](https://github.com/user-attachments/assets/735d2ef9-b912-4ff6-8c4d-b4b8db846055)
 
+ 5. Using command "tech load sky130A.tech" load the updated tech file to see if now the DRC violations are flagged.
 
+ 6. After "drc check" command, DR violation are seen in layout now, which were missing earlier.
+ ![image](https://github.com/user-attachments/assets/3f48f5b8-035c-4506-8099-53a205a7a91e)
+
+## SKY_L7 - Lab exercise to implement poly resistor spacing to diff and tap
+
+1. 
 
 
 
