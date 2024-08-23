@@ -396,9 +396,18 @@ nsubstrate -> nsub contcat-> loacali -> licon -> metal1
  6. snap int
 
 ## SKY_L6 - Lab exercise to fix poly.9 error in Sky130 tech-file 
-1. 
- 
-     
+1. load poly or File -> Open -> poly.mag
+
+![image](https://github.com/user-attachments/assets/4e2c6207-5158-4091-a430-9f1c851bb14a)
+
+ 2. Let's focus on the incorrect poly.9 . poly.9 rule says spacing between npolyres and poly should be minimum 0.48um.
+
+![image](https://github.com/user-attachments/assets/26ffa67c-a5eb-4f77-bbfb-2a40e5db304a)
+
+ 3. As seen, the distance between npolyres and poly layer is 0.21um which is less than 0.48 um and it should be flagged as DRC violaition. However, it is not shown as DRC violation. Reason being the sky130.tech file does not have this spacing rule included.
+
+![image](https://github.com/user-attachments/assets/713292ac-b02b-44aa-bd2f-c7bd874a29e6)
+
       
 
 
