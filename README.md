@@ -295,6 +295,27 @@ With mode 2 set on the fly, the IO pins placement changes
         - For last metal contact formation, Si3N4 dielectric is used instead of SiO2 as Si3N4 is stronger.
      
 ## Sky130 basic layers layout
+- CMOS inverter layour in Magic.
+- Layers panel on the right side shows all the layers.
+- When the Polysilicon crosses the ndiffusion, it forms an NMOS. When Polysilicon crosses the pdiffusion, it forms a PMOS.
+![image](https://github.com/user-attachments/assets/188e8562-b855-479c-9783-ad1f63d68933)
+![image](https://github.com/user-attachments/assets/9804a6f5-4cb6-4dee-a454-bd91b239e4fe)
+- Dimensions of the bbox for inverter. select the inv and write 'box' in tkcon window.
+  ![image](https://github.com/user-attachments/assets/5783bed6-a309-4446-ad38-a95099ff4bf0)
+
+- LEF file has the bbox info and the pins info for the cell. It does not hold any connectivity info. Hence the IP vendors provide only the LEF file for IP to protect it's logical connectivity.
+  ![image](https://github.com/user-attachments/assets/cc3736d5-5729-4282-9771-b3b38b2c8726)
+  ![image](https://github.com/user-attachments/assets/0a3991e8-9512-4057-ac87-08fa88369065)
+nsubstrate -> nsub contcat-> loacali -> licon -> metal1
+- Magic is an interactive DRC tool
+- For logical functionof the design, extract the design into a spice netlist. The Magic command is 'extract all'
+![image](https://github.com/user-attachments/assets/ddf5337f-96c3-498e-a665-7aacab380fc3)
+- sky130A.ext file
+  ![image](https://github.com/user-attachments/assets/904ec7e1-49ae-4f76-9b70-e751739f7bec)
+
+
+
+
           
  
      
