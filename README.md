@@ -342,8 +342,16 @@ nsubstrate -> nsub contcat-> loacali -> licon -> metal1
    - Fall transition time = 4.09326ns - 4.05052ns = 0.04274ns = 42.74ps
  ![image](https://github.com/user-attachments/assets/461d7818-f5c5-45e0-a787-20c0e6135502)
   
-- Cell rise delay (propagation delay)
-- Cell fall delay (propagation delay)
+- Cell rise delay (propagation delay when o/p rises)
+     - 2.20721ns - 2.14988ns = 0.05733ns = 57.33ps
+ 
+![image](https://github.com/user-attachments/assets/777b42ef-5afa-4ece-9576-dc0dc0188435)
+
+- Cell fall delay (propagation delay when o/p falls)
+     - 4.07534ns - 4.05ns = 0.02534ns = 25.34ps
+       
+  ![image](https://github.com/user-attachments/assets/132562b2-b17e-434c-bc0d-4d1b7e9aaef1)
+
 
 
 
