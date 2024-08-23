@@ -352,11 +352,34 @@ nsubstrate -> nsub contcat-> loacali -> licon -> metal1
        
   ![image](https://github.com/user-attachments/assets/132562b2-b17e-434c-bc0d-4d1b7e9aaef1)
 
+## SKY_L3 - Lab introduction to Magic tool options and DRC rules
 
+1. Learning MAGIC layout tool
+![image](https://github.com/user-attachments/assets/7e60a50a-0df5-4370-82bd-06efd6ca18f3)
 
+2. CIF – Caltech Intermediate Format an old format similar to GDS
+3. SKY130 - open source PDK available online to learn fabrication process
+   
+![image](https://github.com/user-attachments/assets/43520d4d-429f-4fb1-8af5-3875bc6828d0)
 
+## SKY_L4 - Lab introduction to Sky130 pdk's and steps to download labs
+1. Download drc tests
 
+![image](https://github.com/user-attachments/assets/4db21417-28fe-4d07-8570-f276ba2bac5c)
+   
+![image](https://github.com/user-attachments/assets/46f0abee-e611-47ed-8d52-a290f070c6cc)
 
+2. Magicrc file:
+
+![image](https://github.com/user-attachments/assets/bdbea17a-d6fc-4a4a-85e5-9a0b0df849f4)
+
+3. open magic using command "magic -d XR"
+
+![image](https://github.com/user-attachments/assets/6ab8fe8e-d8ad-46ea-8648-f744242849b4)
+
+## SKY_L5 - Lab introduction to Magic and steps to load Sky130 tech-rules
+
+1. 
 
 
 
