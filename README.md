@@ -325,8 +325,27 @@ nsubstrate -> nsub contcat-> loacali -> licon -> metal1
 ![image](https://github.com/user-attachments/assets/fde6fd9f-5d2a-4ba1-9cf7-a1b09d917682)
 
 
-- Next, is to run the spice deck with ngspice
+- Next, is to run the spice deck with ngspice 
 ![image](https://github.com/user-attachments/assets/f5075d80-c25b-4fa5-a242-cc54d29e9b50)
+
+- Plotting the o/p Y and i/p A vs time for the 
+![image](https://github.com/user-attachments/assets/e1295651-c623-4cf8-8aa2-f7b3a56630de)
+
+- There are some spikes seen in the A & Y waveforms. Changing the Cload to 2fF (cap load between Y and VGND) to see the impact on spikes.
+![image](https://github.com/user-attachments/assets/7f08c72a-4bd9-4adb-ba35-7793f74012ac)
+
+- Rise transition - Time taken for o/p to rise from 20% to 80% of max power supply, 20% of 3.3 = 0.66V, 80% of 3.3 = 2.64V
+     - Rise transition time = 2.23975ns - 2.17993ns = 0.5982ns = 59.82ps
+![image](https://github.com/user-attachments/assets/f5014b97-502b-471a-ad5f-2018ce216744)
+
+- Fall transition - Time taken for o/p to fall from 80% to 20% of max power supply
+   - Fall transition time = 4.09326ns - 4.05052ns = 0.04274ns = 42.74ps
+ ![image](https://github.com/user-attachments/assets/461d7818-f5c5-45e0-a787-20c0e6135502)
+  
+- Cell rise delay (propagation delay)
+- Cell fall delay (propagation delay)
+
+
 
 
 
