@@ -321,6 +321,14 @@ nsubstrate -> nsub contcat-> loacali -> licon -> metal1
   
 ![image](https://github.com/user-attachments/assets/791ac0ee-0440-450b-9aa1-91a507be6f46)
 
+- Modified spice deck to include proper nmos pmos model names, Va, VDD, VSS sources.
+![image](https://github.com/user-attachments/assets/fde6fd9f-5d2a-4ba1-9cf7-a1b09d917682)
+
+
+- Next, is to run the spice deck with ngspice
+![image](https://github.com/user-attachments/assets/f5075d80-c25b-4fa5-a242-cc54d29e9b50)
+
+
 
 
 
