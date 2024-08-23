@@ -310,8 +310,17 @@ nsubstrate -> nsub contcat-> loacali -> licon -> metal1
 - Magic is an interactive DRC tool
 - For logical functionof the design, extract the design into a spice netlist. The Magic command is 'extract all'
 ![image](https://github.com/user-attachments/assets/ddf5337f-96c3-498e-a665-7aacab380fc3)
-- sky130A.ext file
+- sky130_inv.ext file
   ![image](https://github.com/user-attachments/assets/904ec7e1-49ae-4f76-9b70-e751739f7bec)
+
+- Using below command convert .ext file to spice netlist
+  
+![image](https://github.com/user-attachments/assets/8ea12f33-7a92-4e52-98c3-ef1585f5bbe2)
+
+- Spice netlist looks like below
+  
+![image](https://github.com/user-attachments/assets/791ac0ee-0440-450b-9aa1-91a507be6f46)
+
 
 
 
