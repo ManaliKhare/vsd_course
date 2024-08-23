@@ -379,11 +379,24 @@ nsubstrate -> nsub contcat-> loacali -> licon -> metal1
 
 ## SKY_L5 - Lab introduction to Magic and steps to load Sky130 tech-rules
 
+1. Opening met3 layout in magic. Either use command "magic -d XR met3.mag" or open magic and load file met3.mag from "File -> Open" icon
+
+![image](https://github.com/user-attachments/assets/1f787d06-7aa3-4046-9ef6-a479cd2d73f0)
+
+2. Clicking on Drc -> DRC Update, found 10 DRC violations.
+ 
+![image](https://github.com/user-attachments/assets/0dfb5d03-6fcf-480d-b8af-f39a0a5a4d62)
+
+3. Selecting a part of layout by left click and right click and hen press : drc why. It gives the reason for DRC violation and rule no.
+
+![image](https://github.com/user-attachments/assets/392eb19f-29a1-448e-939e-f36513963a4c)
+
+ 4. cif see VIA2
+ 5. feed clear
+ 6. snap int
+
+## SKY_L6 - Lab exercise to fix poly.9 error in Sky130 tech-file 
 1. 
-
-
-
-          
  
      
       
