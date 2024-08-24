@@ -415,12 +415,41 @@ nsubstrate -> nsub contcat-> loacali -> licon -> metal1
 
  5. Using command "tech load sky130A.tech" load the updated tech file to see if now the DRC violations are flagged.
 
- 6. After "drc check" command, DR violation are seen in layout now, which were missing earlier.
+ 6. After "drc check" command, DRC violation are seen in layout now, which were missing earlier.
  ![image](https://github.com/user-attachments/assets/3f48f5b8-035c-4506-8099-53a205a7a91e)
 
 ## SKY_L7 - Lab exercise to implement poly resistor spacing to diff and tap
 
-1. 
+1. Copy the three resistors (npolyres, ppolyres, xpolyres) by creating a bbox by left click and right click and pressing the key 'a' . Paste it by moving the cursor and pressing key 'c'
+
+![image](https://github.com/user-attachments/assets/b534dad3-7e2a-47cd-a0b9-821321f0f9e1)
+
+2. Now add the ndiffusion and pdiffusion layers above and below the resistors as shown by creating a bbox and selecting the layer from layers panel and pressing key 'p'. The DRC violations increase to 49 from 35.
+
+![image](https://github.com/user-attachments/assets/0b60c9ab-eb20-4de0-8524-c95620faadec)
+
+3. Adding nwell below.
+
+![image](https://github.com/user-attachments/assets/cdd9ffbc-7a54-499d-83e0-5e1cc6dc3ab4)
+
+4. modified the tech file to include the drc rule for npolyres and ntap & diffusion. Now DRC errors increased to 51.
+
+5. Use drc why command to know the reason for drc violation
+
+![image](https://github.com/user-attachments/assets/c1a3a3db-d1fd-40d6-a431-db5cea7eebd3)
+
+
+## SKY_L8 - Lab challenge exercise to describe DRC error as geometrical construct
+
+1. Load nwell.mag layout and zoom to nwell.6
+
+![image](https://github.com/user-attachments/assets/c05299bc-6024-49ee-b58d-51831789e0cd)
+
+2. type "cif ostyle drc" in tkcon
+
+3. ![image](https://github.com/user-attachments/assets/6bca2816-f2e5-4bb4-afaf-a1e18f72731c)
+
+## SKY_L9 - Lab challenge to find missing or incorrect rules and fix them
 
 
 
