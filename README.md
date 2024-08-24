@@ -472,8 +472,22 @@ nsubstrate -> nsub contcat-> loacali -> licon -> metal1
 
 ## SKY130_D4_SK1 - Timing modelling using delay tables / SKY_L1 - Lab steps to convert grid info to track info
 
+1. There are 4 drc violation in the inverter layout.
 
-       
+![image](https://github.com/user-attachments/assets/90c51d34-3d1d-4e90-ad35-e7e590f86de9)
 
+2. During PnR, we only need the Power/Gnd metal, the input/outout opins, the boundry. Logic connectivity info is not required. Here, LEF file is important.
+3. Rules: The input and output ports need to be on the intersection of the vertical & horizontal tracks. The width of the standard cell should be in the odd multiples of the track horizontal pitch & height should be odd multiple of the vertical pitch.
+4. tracks.info file inside the sky130A pdk's , libs.tech, has the info about the metal layer offset and horizontal & vertical pitch. the routes can be placed only along the tracks.
+
+![image](https://github.com/user-attachments/assets/9d61d0ef-c069-4bfc-b555-49cd7faa5f5b)
+
+5. Ports A & Y are of locali layer
+6. Changing the grid size as per li1 values in tracks.info file, Ports A, Y are indeed on the intersection of li1 horizontal & vertical tracks.
+
+![image](https://github.com/user-attachments/assets/25107624-f114-43e7-8b6d-e0df41b61bf1)
+
+
+    
 
 
