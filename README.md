@@ -447,9 +447,26 @@ nsubstrate -> nsub contcat-> loacali -> licon -> metal1
 
 2. type "cif ostyle drc" in tkcon
 
-3. ![image](https://github.com/user-attachments/assets/6bca2816-f2e5-4bb4-afaf-a1e18f72731c)
+3.
+
+ ![image](https://github.com/user-attachments/assets/6bca2816-f2e5-4bb4-afaf-a1e18f72731c)
 
 ## SKY_L9 - Lab challenge to find missing or incorrect rules and fix them
+
+1. Here, the nwell is not tapped. but no DRC violaion is seen.
+
+![image](https://github.com/user-attachments/assets/778a3b5a-e06c-4a3b-836b-2cbc8b49e7f5)
+
+2. modifying the rules in tech file.
+
+3. After modifying the tech rules and changing the drc style to drc full, the nwell drc violatin is flagged. As seen below, nwell is untapped and is highlighted for drc.
+
+![image](https://github.com/user-attachments/assets/d14fc6c1-b95f-41d7-93f9-1253f31ca01a)
+
+4. Addinn a new nwell with a substrate contact in it shows no drc violation.
+
+![image](https://github.com/user-attachments/assets/c8f2c1b4-5fa0-4220-91cd-5dd996c4598b)
+
 
 
 
