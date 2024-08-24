@@ -468,7 +468,9 @@ nsubstrate -> nsub contcat-> loacali -> licon -> metal1
 ![image](https://github.com/user-attachments/assets/c8f2c1b4-5fa0-4220-91cd-5dd996c4598b)
 
 
+# Day 4
 
+## SKY130_D4_SK1 - Timing modelling using delay tables / SKY_L1 - Lab steps to convert grid info to track info
 
 
        
