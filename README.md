@@ -517,3 +517,12 @@ nsubstrate -> nsub contcat-> loacali -> licon -> metal1
 The DRC reduced to 1 after widening the pdiff and ndiff widths.
 
 ![image](https://github.com/user-attachments/assets/2c6a52b5-47b5-491b-a4c6-69884a49c687)
+
+DRC violation-> Ndiffusion spacing to nwell < 0.34 um
+
+![image](https://github.com/user-attachments/assets/2af0387f-ad33-44ca-a374-c3ea98ed8e10)
+
+Rectified the DRC by stripping off the nwell.
+
+![image](https://github.com/user-attachments/assets/8f50618c-1ee4-4128-b8c5-870fd416ce9b)
+
