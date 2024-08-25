@@ -506,9 +506,25 @@ nsubstrate -> nsub contcat-> loacali -> licon -> metal1
 
 ![image](https://github.com/user-attachments/assets/8f8050cb-e173-4124-b649-472cf589b878)
 
-4. Next is to define purpose of the port, port class can be input, output, inout & port use can be signal, power, ground. Once port is efined, we can extract the lef from magic.
+4. Next is to define purpose of the port, port class can be input, output, inout & port use can be signal, power, ground. Once port is defined, we can extract the lef from magic.
 
 ![image](https://github.com/user-attachments/assets/af521460-aa3d-4608-bf94-1f08c467f5ee)
+
+Defining Y as port class output & port use signal.
+
+![image](https://github.com/user-attachments/assets/101ea37a-df96-4653-9a41-1c49405b8b3e)
+
+Defining A as port class input & port use signal.
+
+![image](https://github.com/user-attachments/assets/58820a7e-06cf-4197-a046-0c08cd67e14a)
+
+Defining VPWR as port class inout, port use power.
+
+![image](https://github.com/user-attachments/assets/a3e67389-db17-4e15-9ac4-f4ff51f44b93)
+
+Defining VGND as port class inout, port use ground.
+
+![image](https://github.com/user-attachments/assets/2d06d60f-ba18-4fb2-9f05-0cc7ec0d3475)
 
 5. There are DRC violations present currently. the width of transisor is less than 0.42um causing DRC violation. Fixing the DRC is important. DRC is fixed by widening the pdiffusion and ndiffusion widths to 0.42um from 0.35um.
 
@@ -524,5 +540,25 @@ DRC violation-> Ndiffusion spacing to nwell < 0.34 um
 
 Rectified the DRC by stripping off the nwell.
 
+![image](https://github.com/user-attachments/assets/25287921-c1b3-4270-8ce3-edd08718fbbb)
+
 ![image](https://github.com/user-attachments/assets/8f50618c-1ee4-4128-b8c5-870fd416ce9b)
 
+6. Saved the layout by name sky130_vsdinv.mag using command ![image](https://github.com/user-attachments/assets/186123f0-a782-4557-baae-7089c3ee81bb)
+
+7. Save the lef file using command "lef write"
+
+   ![image](https://github.com/user-attachments/assets/703b48ac-5792-457d-8377-543dfaa0f2f8)
+
+## SKY_L3 - Introduction to timing libs and steps to include new cell in synthesis
+
+1. Copied the lef generated for inverter to the path ![image](https://github.com/user-attachments/assets/f8773a24-32f1-4baf-80be-ae981e94ee2d)
+
+![image](https://github.com/user-attachments/assets/c9cba047-98e0-4d65-b793-64d76e0dfed9)
+
+2. 
+
+
+
+
+   
