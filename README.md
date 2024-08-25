@@ -552,13 +552,55 @@ Rectified the DRC by stripping off the nwell.
 
 ## SKY_L3 - Introduction to timing libs and steps to include new cell in synthesis
 
-1. Copied the lef generated for inverter to the path ![image](https://github.com/user-attachments/assets/f8773a24-32f1-4baf-80be-ae981e94ee2d)
+1. Copy the lef generated for inverter to the path ![image](https://github.com/user-attachments/assets/f8773a24-32f1-4baf-80be-ae981e94ee2d)
 
 ![image](https://github.com/user-attachments/assets/c9cba047-98e0-4d65-b793-64d76e0dfed9)
 
-2. 
+2. For synthesis, we need the inverter cell lib model which is present at below path. Usually, the libs are typical, fast, slow process corners. Copy all pvt libs to src directory.
+
+![image](https://github.com/user-attachments/assets/7c467d76-135b-4ea5-b339-de8739f43c65)
+
+![image](https://github.com/user-attachments/assets/aa65ef2e-1cd3-48df-9c5a-d0d4ddb9adf6)
+
+3. Modify config.tcl to include the libs for sky130_vsdinv cell libs and lef.
+
+![image](https://github.com/user-attachments/assets/25f6dfa6-c594-4bf1-8f4a-b467497cd095)
+
+4. Invoke openlane, execute initial commands, after 'prep -design picorv32a' command, execute 2 additional commands to make sure that the sky130_vsdinv.lef gets included.
+
+![image](https://github.com/user-attachments/assets/44a14b58-5d60-4826-be62-672dcf1620f2)
+
+5. run_synthesis, after sysnthesis ran successfully there were 1554 instances of sky130_vsdinv cell present.
+
+![image](https://github.com/user-attachments/assets/6201095b-9a4b-4a98-8cdc-db8a16739178)
+
+## SKY_L4 - Introduction to delay tables
+
+1. AND and OR gates used for clock gating. One of the input's is enable pin and other is clk. Whenever the enable pin is logic 1 for AND gate, only then clock gets propagated to output. This ensures no dynamic power (switching & short ckt) consumed.
+
+![image](https://github.com/user-attachments/assets/5eaf35fa-3d36-4847-9b73-9e377b2a0a1f)
+
+2. All buffers in a particular level should be of the same size (identical).
+
+![image](https://github.com/user-attachments/assets/92eaecdb-5ae0-4ba3-b60d-9933b97b2566)
+
+3. Delay tables need - Verying input transitions and varying output loads can lead to different delays for the cell. Hence, delay tables comes into picture where for each value of input transition, the output load is sweeped and cell delay is calculated. Similarly, input transition is fixed to another value and again output load is sweeped and cell delay is calculated and tabulated. Each delay table is for a specific size and Vt of cell.
+
+## SKY_L5 - Delay table usage Part 1
+
+1. Each gate will have a seperate delay table depending on it's size. The delay values for input transiton & o/p load which are not exactly present in the table are extrapolated and found. 
+
+![image](https://github.com/user-attachments/assets/6cfa81eb-258d-4620-ba0d-7ce682cbfd24)
 
 
+## SKY_L6 - Delay table usage Part 2
+
+1. Clock latency calculation: For type 1 BUF, extrapolated delay is x9'. Since each of the type 2 BUF are driving same load and connected to same input, their delays would be same which is y15. So all the 4 flops clock wil have latency = x9' + y15. So clock skew would be 0.
+
+![image](https://github.com/user-attachments/assets/28a49d8d-cdc8-473c-ad0a-e5a863f4d6db)
+
+2. Non-zero skew will be present if each node of tyoe 2 BUF is driving differnt loads, which is not esirable. Hence identical loads and identical buffers is recommended.
+
+## SKY_L7 - Lab steps to configure synthesis settings to fix slack and include vsdinv
 
 
-   
