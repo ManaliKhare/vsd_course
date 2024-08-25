@@ -476,7 +476,7 @@ nsubstrate -> nsub contcat-> loacali -> licon -> metal1
 
 ![image](https://github.com/user-attachments/assets/90c51d34-3d1d-4e90-ad35-e7e590f86de9)
 
-2. During PnR, we only need the Power/Gnd metal, the input/outout opins, the boundry. Logic connectivity info is not required. Here, LEF file is important.
+2. During PnR, we only need the Power/Gnd metal, the input/outout opins, the PR boundry. Logic connectivity info is not required. Here, LEF file is important.
 3. Rules: The input and output ports need to be on the intersection of the vertical & horizontal tracks. The width of the standard cell should be in the odd multiples of the track horizontal pitch & height should be odd multiple of the vertical pitch.
 4. tracks.info file inside the sky130A pdk's , libs.tech, has the info about the metal layer offset and horizontal & vertical pitch. the routes can be placed only along the tracks.
 
@@ -487,7 +487,33 @@ nsubstrate -> nsub contcat-> loacali -> licon -> metal1
 
 ![image](https://github.com/user-attachments/assets/25107624-f114-43e7-8b6d-e0df41b61bf1)
 
+## SKY_L2 - Lab steps to convert magic layout to std cell LEF
 
-    
+1. Width of std cell is odd multiple of x-pitch. Here we see, width is covering 3 boxes, so width is 3*x-pitch
 
+![image](https://github.com/user-attachments/assets/5da17cf7-3956-4feb-a7b2-55b31a53429f)
 
+2. Height of std cell is 7 boxes, meaning 7*ypitch    
+
+![image](https://github.com/user-attachments/assets/28c7c142-4e1c-4eca-9c46-102e6ef5a37d)
+
+3. Defining ports for the input output pins and pwr/gnd pins for lef. A & Y ports are attached to layer locali, whereas pwr/gnd ports are attached to layer metal1.
+
+![image](https://github.com/user-attachments/assets/ac4f0d30-cb30-42bf-a0ba-a2f0926fc28c)
+![image](https://github.com/user-attachments/assets/1487aa01-88f3-4c3a-944a-a23192f2d1b7)
+
+ Got to Edit -> Text. there we can define the text label, enable it as port, select the metal attached to the label and decide the order.
+
+![image](https://github.com/user-attachments/assets/8f8050cb-e173-4124-b649-472cf589b878)
+
+4. Next is to define purpose of the port, port class can be input, output, inout & port use can be signal, power, ground. Once port is efined, we can extract the lef from magic.
+
+![image](https://github.com/user-attachments/assets/af521460-aa3d-4608-bf94-1f08c467f5ee)
+
+5. There are DRC violations present currently. the width of transisor is less than 0.42um causing DRC violation. Fixing the DRC is important. DRC is fixed by widening the pdiffusion and ndiffusion widths to 0.42um from 0.35um.
+
+![image](https://github.com/user-attachments/assets/d3c52c4d-baf5-4092-8f10-83e2308b0609)
+
+The DRC reduced to 1 after widening the pdiff and ndiff widths.
+
+![image](https://github.com/user-attachments/assets/2c6a52b5-47b5-491b-a4c6-69884a49c687)
