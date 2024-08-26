@@ -623,10 +623,38 @@ tns = total negative slack, wns = worst negative slack.
  
    - Before, tns & wns are ![image](https://github.com/user-attachments/assets/564ddd04-0198-4e2f-bacf-026d0f160476)
  
-3. Changing the variables values. SYNTH_BUFFERING is already enabled.
+3. Changing the variables values. SYNTH_BUFFERING is already enabled and SYNTH_DRIVING_CELL is already set to a high drive strength cell.
 
    ![image](https://github.com/user-attachments/assets/bc695095-6599-468e-a6d8-f1a843ddca66)
    ![image](https://github.com/user-attachments/assets/bbfc1309-d69a-48bc-a120-db9ba3d2bd20)
+
+4. The chip area is now increased and the slack violation is resolved. tns & wns reported as 0. So, the slack is resolved at the cost of increased chip area.
+
+![image](https://github.com/user-attachments/assets/e00d4cfc-c3dd-4625-9b34-5d51fa24b7af)
+
+5. The merged.lef file created after synthesis shows that 'sky130_vsdinv' cell in included in it. 
+
+![image](https://github.com/user-attachments/assets/33b1c18c-fea4-4592-92fe-b233ddb06023)
+
+6. run_floorplan
+
+7. run_placement - This generates the def file will all the cells placed and we will see if the sky130_vsdinv cell is placed in the def using magic.
+
+![image](https://github.com/user-attachments/assets/ff064b9a-4e7a-46ec-90e2-c7df989e9cb3)
+
+After placement step: 
+
+![image](https://github.com/user-attachments/assets/2dd98e5a-3235-4c23-b93f-a706b8cde333)
+
+Found the cell sky130_vsdinv placed in the top design.
+
+![image](https://github.com/user-attachments/assets/d9cd813e-0f8c-40b2-b3ca-4a307ec42412)
+![image](https://github.com/user-attachments/assets/97ae3336-9f29-46d8-8b0d-30b3cacb49fc)
+
+The overlap between adjacent cells implies abutment meaning, the power and ground rails are being shared as seen below.
+
+![image](https://github.com/user-attachments/assets/2f36a986-00fa-4c49-96f3-949dada37444)
+
 
 
 
