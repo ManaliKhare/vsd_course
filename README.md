@@ -27,6 +27,10 @@ Files inside techlef directory: Tech lef file has information on the metak and v
 ![image](https://github.com/user-attachments/assets/28071480-930f-4433-bb35-0cfd2bbc84ac)
 ![image](https://github.com/user-attachments/assets/d03da675-919d-45f2-824d-e1c850567fab)
 
+## SKY130_D4_SK2 - Timing analysis with ideal clocks using openSTA / SKY_L1 - Setup timing analysis and introduction to flip-flop setup time
+
+1. 
+
 Files inside the spice directory: Spice netlists for the cells.
 ![image](https://github.com/user-attachments/assets/7ce69cbb-9cd8-42e6-a2e4-d44eca54ace1)
 
@@ -656,5 +660,35 @@ The overlap between adjacent cells implies abutment meaning, the power and groun
 ![image](https://github.com/user-attachments/assets/2f36a986-00fa-4c49-96f3-949dada37444)
 
 
+## SKY130_D4_SK2 - Timing analysis with ideal clocks using openSTA/SKY_L1 - Setup timing analysis and introduction to flip-flop setup time
 
+1. Setup time is the time before which the input D for FF must stabilize so as to get a valid output Q.
+2. Setup time determines the maximum operating frequency for the flops.
+3. If Theta is the combo logic delay & T is the clock period, ideally, Theta < T for the flop to operate at freq 1/T. when setup time S comes into picture, then Theta < T-S.
+![image](https://github.com/user-attachments/assets/685401c7-cc77-40b5-a02d-b5d726f28610)
 
+## SKY_L2 - Introduction to clock jitter and uncertainty
+1. Clock is provided by PLL - Phase Locked Loop circuit.
+2. Ideally, the clock edage is expected to be at time 0, T, 2T, 3T and so on but the PLL circuit is again made of MOS device and has interconnects, and hence is susceptible to variations and hence might not prvie clock edge at exactly 0, T, 2T time. So clock edge might arrive somewhere before or after 0, or before or after T ns. This variation in clock edge arrival is called jitter.
+
+![image](https://github.com/user-attachments/assets/bca2089e-9115-40d6-a1f4-7ebbaf9f58b5)
+
+3. Because of the jitter, the combo delay becomes more stringent. Hence jitter variation has to be modeled in the combo delay equation.
+4. If the jitter variation is modeled as SU then modified combo delay equation is Theta < T-S-SU
+
+![image](https://github.com/user-attachments/assets/a92b62aa-d14d-40cb-a8ce-27546bb4a8e8)
+
+5. Below two paths have single clock and so, we can try to find which path will have less combinational delay. Orange path is triggered by clk1 & yellow paths by clk2.
+
+![image](https://github.com/user-attachments/assets/61f65b76-e342-4036-aced-01b1a6d7fdd1)
+
+6. For orange path, combo delay us given below, Since here the cells 1& 2 are placed at some distance, the wire dlay also contributes to the combo delay.
+
+![image](https://github.com/user-attachments/assets/818c459c-5b45-4146-8744-cdc364fd3a72)
+
+7. For yellow path, the wire delays between FF1 -> cell1 , cell1 -> cell2 & cell2 -> FF2 is just negigible. So, overall combo delay woud be lesser than orange path.
+
+![image](https://github.com/user-attachments/assets/51c5f1e7-3e9d-4765-8c8e-1e0324c59c35)
+
+## SKY_L3 - Lab steps to configure OpenSTA for post-synth timing analysis
+1. Post sysnthesis timimng analysis with OpenSTA in Openlane flow, similar to PrimeTime for Synopsys.
