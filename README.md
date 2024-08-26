@@ -1,4 +1,4 @@
-# vsd_course Day 1
+![image](https://github.com/user-attachments/assets/fc30411b-4412-43b3-9a79-f2bccd58f086)# vsd_course Day 1
 
 1. Invoke openlane:
 
@@ -602,5 +602,31 @@ Rectified the DRC by stripping off the nwell.
 2. Non-zero skew will be present if each node of tyoe 2 BUF is driving differnt loads, which is not esirable. Hence identical loads and identical buffers is recommended.
 
 ## SKY_L7 - Lab steps to configure synthesis settings to fix slack and include vsdinv
+
+tns = total negative slack, wns = worst negative slack.
+
+1. Currently the tns & wns values are very high as seen below image. Let's try to fix the slack by playing around with some synthesis variables.
+      - SYNTH_STRATEGY : Strikes a balance between delay and chip area. Default is AREA 0.
+      - SYNTH_BUFFERING: Buffering the high fan-out nets in the design.
+      - SYNTH_SIZING: Upsizing or downsizing the buffers.
+
+![image](https://github.com/user-attachments/assets/564ddd04-0198-4e2f-bacf-026d0f160476)
+![image](https://github.com/user-attachments/assets/926a4da5-68a3-4c65-a728-07a724360d3a)
+![image](https://github.com/user-attachments/assets/96e0e575-28c8-4398-8988-bb237fa73b48)
+
+2. Before changing the synthesis variables:
+   - Before, Chip area is ![image](https://github.com/user-attachments/assets/982fd58a-0e35-40b6-b4aa-654d674937c1)
+   - Before, SYNTH_STRATEGY, SYNTH_BUFFERING, SYNTH_SIZING variable value
+   
+    ![image](https://github.com/user-attachments/assets/50f905df-4304-4906-a089-ae14ce12f0e7) ![image](https://github.com/user-attachments/assets/8a5d79b2-da30-4a04-a705-42a9a0ed9ca9)
+
+ 
+   - Before, tns & wns are ![image](https://github.com/user-attachments/assets/564ddd04-0198-4e2f-bacf-026d0f160476)
+ 
+3. Changing the variables values. SYNTH_BUFFERING is already enabled.
+
+   ![image](https://github.com/user-attachments/assets/bc695095-6599-468e-a6d8-f1a843ddca66)
+   ![image](https://github.com/user-attachments/assets/bbfc1309-d69a-48bc-a120-db9ba3d2bd20)
+
 
 
