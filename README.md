@@ -568,7 +568,7 @@ Rectified the DRC by stripping off the nwell.
 
 3. Modify config.tcl to include the libs for sky130_vsdinv cell libs and lef.
 
-![image](https://github.com/user-attachments/assets/25f6dfa6-c594-4bf1-8f4a-b467497cd095)
+![image](https://github.com/user-attachments/assets/98c8a448-b58f-48cc-ab18-3cb0533ae552)
 
 4. Invoke openlane, execute initial commands, after 'prep -design picorv32a' command, execute 2 additional commands to make sure that the sky130_vsdinv.lef gets included.
 
