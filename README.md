@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/fc30411b-4412-43b3-9a79-f2bccd58f086)# vsd_course Day 1
+# vsd_course Day 1
 
 1. Invoke openlane:
 
