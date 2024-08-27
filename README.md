@@ -692,3 +692,24 @@ The overlap between adjacent cells implies abutment meaning, the power and groun
 
 ## SKY_L3 - Lab steps to configure OpenSTA for post-synth timing analysis
 1. Post sysnthesis timimng analysis with OpenSTA in Openlane flow, similar to PrimeTime for Synopsys.
+2. Creating file pre_sta.conf, Contents of pre_sta.conf -> Units, max min libs, sdc, verilog,
+
+![image](https://github.com/user-attachments/assets/2e110f3b-cd65-4224-8f39-6cad085f2d8e)
+
+3. CTS is building clock tree. We will be adding buffers, changing the netlist. Hence after CTS, a new .v verilog file will be created.
+4. my_base.sdc is inside ![image](https://github.com/user-attachments/assets/33666bd7-909d-4387-9c7c-648b48a89c94)
+ 
+![image](https://github.com/user-attachments/assets/b03b771c-af84-4f32-a019-81c6c1cb373d)
+
+5. run command 'sta pre_sta.conf' in the terminal, runs sta using OpenSTA
+
+![image](https://github.com/user-attachments/assets/dcb7c2b1-8700-4d1c-ae95-fa5daec977f0)
+
+## SKY_L4 - Lab steps to optimize synthesis to reduce setup violations
+
+1. Hold time analysis come into picture after CTS. Hold analysisis done with min path.
+2. The delay of any cell is a function of it's input slew and output load. More the input slew, more will be the cell delay & more the output load, more the delay.
+3. PNR is an iterative flow. Might have to revisit the previous steps multiple times.
+4. Now, the delay is high due to huge fanout nets
+   
+
