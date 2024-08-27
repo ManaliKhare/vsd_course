@@ -701,15 +701,50 @@ The overlap between adjacent cells implies abutment meaning, the power and groun
  
 ![image](https://github.com/user-attachments/assets/b03b771c-af84-4f32-a019-81c6c1cb373d)
 
-5. run command 'sta pre_sta.conf' in the terminal, runs sta using OpenSTA
+5. run command 'sta pre_sta.conf' in the terminal in openlane directory, runs sta using OpenSTA
 
 ![image](https://github.com/user-attachments/assets/dcb7c2b1-8700-4d1c-ae95-fa5daec977f0)
 
 ## SKY_L4 - Lab steps to optimize synthesis to reduce setup violations
 
-1. Hold time analysis come into picture after CTS. Hold analysisis done with min path.
-2. The delay of any cell is a function of it's input slew and output load. More the input slew, more will be the cell delay & more the output load, more the delay.
-3. PNR is an iterative flow. Might have to revisit the previous steps multiple times.
-4. Now, the delay is high due to huge fanout nets
+1. Hold time analysis comes into picture after CTS. Hold analysisis done with min path.
+2. Now, for setup analysis, the delay is high due to huge fanout nets.
+3. The delay of any cell is a function of it's input slew and output load. More the input slew, more will be the cell delay & more the output load, more the delay. Output load is contributed by fanout. If fanout is high, we need to optimize it. The fanout setting right now is 6. let's set it to 4.
+
+![image](https://github.com/user-attachments/assets/688b1bf8-4ab7-480c-bcce-fc9d9bd6920c)
+
+PNR is an iterative flow. Might have to revisit the previous steps multiple times. We had come till placement, but when we saw delay was high due to high fanout nets, we needed to go back to synthesis with optimized fanout value.
+
+4. Even after changing max fanout to 4, we still see high slack, the fanout for few stages is still very high as shown below:
+   
+![image](https://github.com/user-attachments/assets/4da37a54-c102-43e7-b6dc-b616e60f7357)
+
+We can get the net connections for high fanout net with below command:
+
+![image](https://github.com/user-attachments/assets/52d8e9d0-87bf-4ffe-b0cd-5b9d3d061309)
+
+5. We can try replacing the cell by another cell to see impact on slack.
+![image](https://github.com/user-attachments/assets/158e473f-adf0-4c1c-86b1-df4985a333d5)
+
+With this, the slack has improved from -3.14 to -1.74. There is yet another cell with high fanout contributing to huge delay. 
+
+![image](https://github.com/user-attachments/assets/96f23ec9-173b-4971-afaf-ecf8b20b90c4)
+
+![image](https://github.com/user-attachments/assets/45991413-2f37-40d6-b7b8-2e9f7d5a380f)
+
+6. Again replace the cell with high fanout to see effect on slack.
+
+![image](https://github.com/user-attachments/assets/004a493b-d3a6-451b-9d9b-778675ed53c6)
+
+![image](https://github.com/user-attachments/assets/4e940c31-f1f9-43ec-9162-509795406d12)
+
+Slack further improved to -1.588 ![image](https://github.com/user-attachments/assets/ca99d6ef-4ba4-4c16-8ea0-52d2c1ba9b1f)
+
+7. Replacing another high delay cell, the slack further improved to -1.3.
+   
+![image](https://github.com/user-attachments/assets/8bf175d0-b132-4a1f-a2f9-53529e9e98b2)
+![image](https://github.com/user-attachments/assets/46fad0dc-e7d3-4a3d-ba5c-af2f18afa955)
+
+
    
 
