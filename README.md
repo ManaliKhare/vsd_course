@@ -745,6 +745,45 @@ Slack further improved to -1.588 ![image](https://github.com/user-attachments/as
 ![image](https://github.com/user-attachments/assets/8bf175d0-b132-4a1f-a2f9-53529e9e98b2)
 ![image](https://github.com/user-attachments/assets/46fad0dc-e7d3-4a3d-ba5c-af2f18afa955)
 
+Upsizing the cells thus improve the timing.
 
-   
+## SKY_L5 - Lab steps to do basic timing ECO
 
+1. If the worst timing path changes when we replace cell, we can use below command to report the slack imporvemnet due to replace_cell for the original path.
+
+![image](https://github.com/user-attachments/assets/4f1b28b9-8911-48c0-86ef-5d017c2d7e0e)
+
+2. After resolving the slack, we generate the timing eco and it's fed to PNR tool.  
+
+## SKY130_D4_SK3 - Clock tree synthesis TritonCTS and signal integrity / SKY_L1 - Clock tree routing and buffering using H-Tree algorithm
+
+1. Ideally, we want the clock to reach each flop at the same time. The difference between clock edge arrival times is called skew and ideally skew should be 0.
+
+2. Example of bad tree:
+
+![image](https://github.com/user-attachments/assets/08c8277c-f2b3-4387-9590-eb41ccb19764)
+
+3. H-Tree: Calculate the distance of the clock port to all the flops and find the mid point and branch it from midpoint. This way, the clock reaches all flops, more of less at the same time.
+
+![image](https://github.com/user-attachments/assets/d4041f39-98f3-477a-abc5-30b6685f78bf)
+
+4. CLock tree are physical wires and have some resistors, capacitors (RC network)associated to its path. This leads to clock waveform getting degraded compared to source.
+
+![image](https://github.com/user-attachments/assets/add7cb5d-770a-4f3c-b415-0d1b8fefb7a7)
+
+5. This is improved by adding repeaters (buffers). Clock path buffers have equal rise & fall times, unlike data path buffers. IN below snapshot, the red buffers are clock buffers.
+
+![image](https://github.com/user-attachments/assets/87084b3d-3c60-4c50-89b6-5d29d09b2d6d)
+
+
+## SKY_L2 - Crosstalk and clock net shielding
+
+1. Clock net shielding: If two clock nets are close by, there can be cross talks happening and the clock signal might degarde. Hence clock nets need to be shielded.
+
+![image](https://github.com/user-attachments/assets/4a8727f1-79a2-4516-a533-cc24b94e4036)
+
+2. GLitch and delta delay: Cross-talk can cause glitches on the victim nets and the glitches can cause undesired functionality. Shielding can protect glitches. Shielding breaks the coupling capacitance between agressor & victim. Shields don't switch. 
+
+![image](https://github.com/user-attachments/assets/c37b2718-d3c7-40a7-be4a-91da756bff2d)
+
+3. If the victim and agressor both are switching then 
