@@ -853,9 +853,29 @@ CTS step adds clock buffers, so the netlist is now modified. AFter CTS, a new ne
 ## SKY130_D4_SK4 - Timing analysis with real clocks using openSTA / SKY_L1 - Setup timing analysis using real clocks
 
 1. In real clock paths, there would be buffers placed so we need to consider the clock buffers delays as well while deciding the setup and hold time constraints.
+   
 ![image](https://github.com/user-attachments/assets/900e3ae0-5467-42a1-b411-1c264051c9a4)
-   - fff
+   - For the launch flop, the clock edge will have delay of buf1 + buf2 cell delays = Δ1
+   - For the capture flop, the clock edge will have delay of buf1 + buf3 + buf4 cell delays = Δ2
+   - The combinational logic delay = Θ
+   - Clock period = T
+   - As per previous understanding, Θ < T.
+   - Now considering the clokc buffers delays, Θ + Δ1 < T + Δ2
+   - CLock SKew = |Δ1 - Δ2|
+   - Capture flop setup time = S
+   - Jitter uncertainty = SU
+   - Real complete equation for setup timing analysis -> (Θ + Δ1) < (T + Δ2) - S - SU
+   - Any circuit violating the above equation leads to slack violation.
 
+2. What is SLACK?
+   - Data arrival time = (Θ + Δ1)
+   - Data required time = (T + Δ2) - S - SU
+   - Data Arrival Time should be always less than or equal to Data Required Time.
+   - SLACK = Data Required Time - Data Arrival Time
+   - 
+
+     
+     
 
 
 
