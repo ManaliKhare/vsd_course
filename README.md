@@ -732,7 +732,12 @@ With this, the slack has improved from -3.14 to -1.74. There is yet another cell
 
 ![image](https://github.com/user-attachments/assets/45991413-2f37-40d6-b7b8-2e9f7d5a380f)
 
-6. Again replace the cell with high fanout to see effect on slack.
+   - If we replace the high fanout cell ![image](https://github.com/user-attachments/assets/9262b4cb-0b97-4a50-a5e6-212d98ad52d9) by a bigger size mux ![image](https://github.com/user-attachments/assets/5cffd4a4-eee0-4da7-8a6a-1ddd48e712b8) and report the slack between the same from & to points, we see the slack is met (+2.63).
+
+     ![image](https://github.com/user-attachments/assets/6be989e8-1745-41d8-8f66-b46846ec2c46)
+
+
+6. Now, the worst slack path has changed. Again replace the cell with high fanout to see effect on slack.
 
 ![image](https://github.com/user-attachments/assets/004a493b-d3a6-451b-9d9b-778675ed53c6)
 
@@ -746,6 +751,8 @@ Slack further improved to -1.588 ![image](https://github.com/user-attachments/as
 ![image](https://github.com/user-attachments/assets/46fad0dc-e7d3-4a3d-ba5c-af2f18afa955)
 
 Upsizing the cells thus improve the timing.
+
+8. In openlane, we started with a slack of 
 
 ## SKY_L5 - Lab steps to do basic timing ECO
 
@@ -786,4 +793,11 @@ Upsizing the cells thus improve the timing.
 
 ![image](https://github.com/user-attachments/assets/c37b2718-d3c7-40a7-be4a-91da756bff2d)
 
-3. If the victim and agressor both are switching then 
+3. If the victim and agressor both are switching then there is additional delay called delta which gets added to the victim cell delay because of cross-talks. So, before crosstalk, delay of victim cell = D, After crosstalk, elay of victim cell = D + delta.
+Hence latency of path is L2 + delta which is greater than L1. Hence there will be a skew intorduced which is equal to delta. This is the case for just one path but for millions of clock paths, the delta contribution can grow exponentially. Hence we shield the critical nets like clock nets.
+
+4. Next step is to a timing analysis with clock tree placement.
+
+## SKY_L3 - Lab steps to run CTS using TritonCTS
+
+
