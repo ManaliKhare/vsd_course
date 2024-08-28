@@ -945,7 +945,29 @@ Setup slack:
 ## SKY_L4 - Lab steps to execute OpenSTA with right timing libraries and CTS assignment
 
 1. Triton CTS is built only to support one corner, and we have build the clock tree according to typical corner. However, we have included min & max corner libs in this analysis. So this analysis stands incorrect.
-2.  
+2.  Let's redo the STA using lib for typical corner. For that, we exit openread and then invoke again. But now we just read the prviouslt created db pico_cts.db.
+   - openroad
+   - read_db pico_cts.db
+   - read_verilog /openLANE_flow/designs/picorv32a/runs/28-08_09-45/results/synthesis/picorv32a.synthesis_cts.v
+   - read_liberty $::env(LIB_SYNTH_COMPLETE)
+   - link_design picorv32a
+   - read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc
+   - set_propagated_clock [all_clocks]
+   - report_checks -path_delay min_max -format full_clock_expanded -digits 4
+3. Now both the hold & setup slacks are met. This gives a proper result with typical lib corner.
+   - Hold slack is +0.0264
+     
+![image](https://github.com/user-attachments/assets/01ffe3da-24a6-4fff-b095-b381d865c279)
+
+   - Setup slack is +5.8899
+
+![image](https://github.com/user-attachments/assets/49769a10-768b-4203-8afb-e818c58023a0)
+![image](https://github.com/user-attachments/assets/50a37ebc-fca0-42be-aa58-29a5804dc257)
+
+
+
+
+
 
 
 
