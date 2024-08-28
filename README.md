@@ -682,7 +682,7 @@ The overlap between adjacent cells implies abutment meaning, the power and groun
 
 ![image](https://github.com/user-attachments/assets/61f65b76-e342-4036-aced-01b1a6d7fdd1)
 
-6. For orange path, combo delay us given below, Since here the cells 1& 2 are placed at some distance, the wire dlay also contributes to the combo delay.
+6. For orange path, combo delay s given below, Since here the cells 1& 2 are placed at some distance, the wire dlay also contributes to the combo delay.
 
 ![image](https://github.com/user-attachments/assets/818c459c-5b45-4146-8744-cdc364fd3a72)
 
@@ -691,7 +691,7 @@ The overlap between adjacent cells implies abutment meaning, the power and groun
 ![image](https://github.com/user-attachments/assets/51c5f1e7-3e9d-4765-8c8e-1e0324c59c35)
 
 ## SKY_L3 - Lab steps to configure OpenSTA for post-synth timing analysis
-1. Post sysnthesis timimng analysis with OpenSTA in Openlane flow, similar to PrimeTime for Synopsys.
+1. Post sysnthesis timing analysis with OpenSTA in Openlane flow, similar to PrimeTime for Synopsys.
 2. Creating file pre_sta.conf, Contents of pre_sta.conf -> Units, max min libs, sdc, verilog,
 
 ![image](https://github.com/user-attachments/assets/2e110f3b-cd65-4224-8f39-6cad085f2d8e)
@@ -891,12 +891,71 @@ CTS step adds clock buffers, so the netlist is now modified. AFter CTS, a new ne
     
 ![image](https://github.com/user-attachments/assets/4e430ddd-d3bf-479b-9ae5-6b4023b16257)
 
-       - HU is hold uncertainty.
-       - Hold time equation now is -> Θ + Δ1) > (H + Δ2 + HU)
-       - Data arrival time = (Θ + Δ1)
-       - Data required time = (H + Δ2 + HU)
-       - For hold analysis, SLACK = Data arrival time - Data required time
-       - 
+   - HU is hold uncertainty.
+   - Hold time equation now is -> Θ + Δ1) > (H + Δ2 + HU)
+   - Data arrival time = (Θ + Δ1)
+   - Data required time = (H + Δ2 + HU)
+   - For hold analysis, SLACK = Data arrival time - Data required time, SLACK should be either 0 or positive.
+
+2. Timing analysis with real clock.
+   - All wire RC delays also come into picture along with the buffer delays
+
+![image](https://github.com/user-attachments/assets/112d8f7a-2e23-493a-ad60-232fbc3e01a6)
+![image](https://github.com/user-attachments/assets/0cbc9042-2261-46e5-ac5a-75f8930ca5bc)
+![image](https://github.com/user-attachments/assets/3c772b1d-1402-4bd0-b910-5c3b3b8e1be7)
+
+## SKY_L3 - Lab steps to analyze timing with real clocks using OpenSTA
+
+1. OpenROAD was an independent project before it got integrated into OpenLane.
+2. OpenROAD has the OpenSTA integrated in it like SYnopsys ICC2 PNR tool has timing engine inside it.
+3. Invoke 'openroad' from openlane console. Type 'openroad'
+4. Next, we will invoke openSTA fom openroad console so that we can use all env variables within openlane.
+5. The openroad flow is as below:
+   - openroad
+   - echo $::env(CURRENT DEF) -> This will point the latest lef & def files path
+   - read_lef /openLANE_flow/designs/picorv32a/runs/28-08_09-45/tmp/merged.lef
+   - read_def /openLANE_flow/designs/picorv32a/runs/28-08_09-45/results/cts/picorv32a.cts.def
+   - write_db pico_cts.db
+   - read_db pico_cts.db
+   - read_verilog /openLANE_flow/designs/picorv32a/runs/28-08_09-45/results/synthesis/picorv32a.synthesis_cts.v
+   - read_liberty -max $::env(LIB_SLOWEST)
+   - read_liberty -min $::env(LIB_FASTEST)
+   - read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc
+   - set_propagated_clock [all_clocks]
+   - report_checks -path_delay min_max -format full_clock_expanded -digits 4
+     
+6. Outcome of the commands:
+   
+![image](https://github.com/user-attachments/assets/a19e8ebc-bacd-4913-bb5e-13385cc9cf99)
+![image](https://github.com/user-attachments/assets/a091b7ae-367b-40a6-a47a-5623219cf25b)
+![image](https://github.com/user-attachments/assets/ea096b33-d968-4654-86b9-26f381380906)
+
+Hold slack:
+
+![image](https://github.com/user-attachments/assets/bd5f203c-376e-4d1f-a5dd-2754be1c3bb1)
+
+Setup slack:
+
+![image](https://github.com/user-attachments/assets/c565a136-fbd8-428b-8f4a-dfe35e5ff8d2)
+![image](https://github.com/user-attachments/assets/c92482c1-f249-4dd2-ae74-8513daa9a211)
+
+7. Hold slack does not depend on clock period.
+8. CTS is followed by routhing where actual metal traces are laid which will increase the delay (RC) of data path, which will increase the arrival time & hold slack can be rectified. 
+
+## SKY_L4 - Lab steps to execute OpenSTA with right timing libraries and CTS assignment
+
+1. Triton CTS is built only to support one corner, and we have build the clock tree according to typical corner. However, we have included min & max corner libs in this analysis. So this analysis stands incorrect.
+2.  
+
+
+
+
+
+
+
+
+
+       
          
 
 
