@@ -800,4 +800,62 @@ Hence latency of path is L2 + delta which is greater than L1. Hence there will b
 
 ## SKY_L3 - Lab steps to run CTS using TritonCTS
 
+1. Once the slack is optimized, we write the verilog in the results/synthesis directory with below command.
+
+![image](https://github.com/user-attachments/assets/16908626-e416-4265-a0c3-b587bfc67f1e)
+
+This will overwrite the previous verilog obtained after 'run_synthesis' step.
+
+2. To verify if the netlist is overwritten, we checked the last cell replaced in sta eco. It was ![image](https://github.com/user-attachments/assets/a394eeed-553e-4d69-b57b-8af0cfed65b8) . And yes, this cell is as per replacemnet done in netlist.
+
+![image](https://github.com/user-attachments/assets/c3856d12-db80-46c6-ae7a-b76098d9dc15)
+
+3. After writing new netlist post STA, we run floorplan step -> run_floorplan
+4. We again run placement -> run_placement
+5. Our core area has increased to fix the timing.
+6. Next step is to run CTS.
+7. Parameters to play around with in CTS -> ../../openlane/configuration/README.md
+
+![image](https://github.com/user-attachments/assets/fbd51ba6-a690-465b-8b92-ad99c2554e19)
+
+8. The default parameters for CTS are:
+
+![image](https://github.com/user-attachments/assets/38064638-8ef1-4a5f-aa8c-6c1800272a79)
+
+9. Run the clock tree synthesis -> run_cts
+
+![image](https://github.com/user-attachments/assets/7fd3ae91-7e42-4f89-81a3-ccf425f314ac)
+
+CTS step adds clock buffers, so the netlist is now modified. AFter CTS, a new netlist called picorv32a.synthesis_cts.v is added to synthesis direcory.
+
+![image](https://github.com/user-attachments/assets/4906a519-3222-4989-9b72-218a07942f5a)
+
+## SKY_L4 - Lab steps to verify CTS runs
+
+1. Inside ![image](https://github.com/user-attachments/assets/0bba27bd-ac70-4807-bed4-6dae5b9b4c4c) there are tcl scripts for each step. for cts as well cts.tcl exists which has some procs defined inside which get called when we execute run_cts.
+   
+![image](https://github.com/user-attachments/assets/91fd5713-375a-4176-b06c-dc2c08f5e6d1)
+
+2. OpenROAD is an EDA tool inside openlane which executes floorplan, placement, cts, routing etc. But synthesis is not executed inside OpenROAD.
+
+![image](https://github.com/user-attachments/assets/da5156fd-bd40-4c6c-97bf-a0fcb0db9d3d)
+
+3. Scripts inside OpenROAD directory:
+
+![image](https://github.com/user-attachments/assets/08e32410-ef3d-4eab-a051-8a0f590451ff)
+
+4. Steps in OpenROAD:
+
+![image](https://github.com/user-attachments/assets/cf2edcfa-62e2-4003-8aa9-fa95c0539b49)
+
+
+# Sky130 Day 4 - Pre-layout timing analysis and importance of good clock tree
+## SKY130_D4_SK4 - Timing analysis with real clocks using openSTA / SKY_L1 - Setup timing analysis using real clocks
+
+1. In real clock paths, there would be buffers placed so we need to consider the clock buffers delays as well while deciding the setup and hold time constraints.
+![image](https://github.com/user-attachments/assets/900e3ae0-5467-42a1-b411-1c264051c9a4)
+   - fff
+
+
+
 
