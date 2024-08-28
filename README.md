@@ -964,6 +964,41 @@ Setup slack:
 ![image](https://github.com/user-attachments/assets/49769a10-768b-4203-8afb-e818c58023a0)
 ![image](https://github.com/user-attachments/assets/50a37ebc-fca0-42be-aa58-29a5804dc257)
 
+4. Skew values should be a;ways within 10% of the max clock period. The is a clock buffer list which openlane uses to meet the skew. It uses the buffers from left to right (increasing order of buffer size) and checks the skew.
+     - It starts with *clkbuf_1 > *clkbuf_2 > *clkbuf_4 > *clkbuf_8
+     - ![image](https://github.com/user-attachments/assets/7d8f32d7-b410-4c09-8404-7a40740338da)
+     - Let's replace the *clkbuf_1 and see impact on the slack.
+     - ![image](https://github.com/user-attachments/assets/0ce82ca1-3c11-4a60-a56d-0dc66f8195fc)
+     - Now, only *clkbuf_2, *clkbuf_4 & *clkbuf_8 are in the list.
+     - run_cts
+
+## SKY_L5 - Lab steps to observe impact of bigger CTS buffers on setup and hold timing
+
+1. The CURRENT_DEF variable was set to cts def since we ran cts previously. But now since we need to rerun cts, we shall change CURRENT_DEF variable to point to after placement def.
+
+![image](https://github.com/user-attachments/assets/593d0935-07b1-4d70-b989-07b04d91682d)
+
+2. Now after completing cts, we will do an STA with openROAD following below steps as did earlier to check the impact of replacing *clkbuf_1 from clock buffers list and having bigger size buffers.
+
+![image](https://github.com/user-attachments/assets/b0c5eb08-e5d2-499a-a374-1ad22ea97aa3)
+
+3. Impact of removing *clkbuf_1
+      - Before replacing *clkbuf_1 , Hold slack = 0.0264 , Setup slack = 5.8899
+      - After replacing *clkbuf_1, Hold slack = 0.2872, Setup slack = 5.7623
+      - Hold slack has improved a lot from 0.0264 to 0.2872.
+      - Setup slack is roughly the same.
+      - No *clkbuf_1 buffers are present in the clock paths now.
+      - Chip area has taken a hit with adding bigger size buffers.
+4. Clock Skew: should be max 10% of clock period.
+   - ![image](https://github.com/user-attachments/assets/d2b439d0-b735-436c-aca1-98a837a50b11)
+   - CLock period is 12ns and both hold and setup clock skews are less than 10% (1.2ns) which is very good.
+  
+5. To insert the *clkbuf_1 back to the clock buffers list, below are the steps
+   - ![image](https://github.com/user-attachments/assets/4d486aa6-63a1-49af-a0c1-cab2292400a2)
+     
+
+
+
 
 
 
