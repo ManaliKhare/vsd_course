@@ -872,7 +872,34 @@ CTS step adds clock buffers, so the netlist is now modified. AFter CTS, a new ne
    - Data required time = (T + Δ2) - S - SU
    - Data Arrival Time should be always less than or equal to Data Required Time.
    - SLACK = Data Required Time - Data Arrival Time
-   - 
+   - SLACK should be either 0 or positive. Negative SLACK is a violation and needs to be rectified.
+
+   ![image](https://github.com/user-attachments/assets/ff05e67c-d461-47b2-a232-a752538f8abb)
+
+
+3. Hold timing analysis with real clock paths
+   
+   - ![image](https://github.com/user-attachments/assets/482dcdd5-17fd-4d9f-81af-01d7cc6b65da)
+   - Now, the data sampled from previous clock edge is already inside the capture flop and it is to be passed to Q during current clock edge.
+   - The capture flop needs to communicate to launch flop to send the next data after certain time called hold time H.
+   - For ideal clocks, Θ > H
+   - With real clock paths, (Θ + Δ1) > (H + Δ2)
+
+ ## SKY_L2 - Hold timing analysis using real clocks
+
+ 1. Jitter uncertainty does not impact the hold time as the same clock edge is going to both launch & capture flops.Still a very low uncertainty value is considered.
+    
+![image](https://github.com/user-attachments/assets/4e430ddd-d3bf-479b-9ae5-6b4023b16257)
+
+       - HU is hold uncertainty.
+       - Hold time equation now is -> Θ + Δ1) > (H + Δ2 + HU)
+       - Data arrival time = (Θ + Δ1)
+       - Data required time = (H + Δ2 + HU)
+       - For hold analysis, SLACK = Data arrival time - Data required time
+       - 
+         
+
+
 
      
      
