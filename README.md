@@ -1083,7 +1083,81 @@ Setup slack:
 
  ## SKY130_D5_SK2 - Power Distribution Network and routing / SKY_L1 - Lab steps to build power distribution network
 
-1. 
+1. Before routing, we need to build the Power delivery network (PDN) where the power and ground rails are laid. The command to do pdn is 'gen_pdn'
+
+   ![image](https://github.com/user-attachments/assets/195e5489-cf70-40b3-81c6-11f69a981e1a)
+
+2. The 'gen_pdn' command gave error so the hack is to run pdn after floorplan.
+3. Reran the below steps and the saw the PG grid placed in the design.
+      - package require openlane 0.9
+      - prepare -design picorv32a -tag 28-08_09-45
+      - init_floorplan
+      - place_io
+      - global_placement_or
+      - tap_decap_or
+      - run_power_grid_generation
+      - run_placement
+      - run_cts
+        
+   PG grid seen in the layout in MAGIC after run_power_grid_generation & run_placement steps.
+   ![image](https://github.com/user-attachments/assets/011ab742-14d5-4da7-b9d6-e09e6136aad9)
+   
+4. Std cell height is 2.72 um as seen the the pdn step
+  
+   ![image](https://github.com/user-attachments/assets/2cd5ce4e-559c-455e-8771-aad8cf104ad8)
+   Std cell height is 2.72um is verified from layout
+   
+   ![image](https://github.com/user-attachments/assets/8f64913e-e4ea-4552-8be6-c21c7cf2ec67)
+
+  ## SKY_L2 - Lab steps from power straps to std cell power
+
+  1. Power planning: power reaches from the power pads to the power rings and from rings to the vertical pwer straps and then to the std cell rails.
+
+  ![image](https://github.com/user-attachments/assets/ada3778c-e011-41b7-8de1-cac0624eb4f3)
+
+  ## SKY_L3 - Basics of global and detail routing and configure TritonRoute
+
+  1. Last step is to run routing.
+  2. Variables for routing from .../openlane/configuration/README.md
+
+     ![image](https://github.com/user-attachments/assets/664cbb0e-b0f3-4229-bb89-ce94ec575f82)
+        - TritonRoute is the engine for routing.
+        - Different routing strategies (INSTERTION_STRATEGY) are available. Values 0-3
+        - Routing strategy selected will impact the runtime & memory requirements.
+        - run_routing
+          
+          ![image](https://github.com/user-attachments/assets/9b3d00a5-e2e6-4a60-8d5f-0cd46beeb483)
+
+   3. Routing steps: 1. Fast route 2. Detail route
+
+      ![image](https://github.com/user-attachments/assets/1b9fac9d-926d-43c8-acab-bffa346212b3)
+       - Fast route is the engine used for Global routing.
+       - Detail route is done by Triton Route
+       - Detail route tries to find the best possible path between source & endpoint
+     
+   ## SKY130_D5_SK3 - TritonRoute Features / SKY_L1 - TritonRoute feature 1 - Honors pre-processed route guides
+
+   1. ![image](https://github.com/user-attachments/assets/e0a36a66-9095-462f-9d9e-6c6044eb24eb)
+         - MILP - Mixed integer linear programming
+         - Intra layer parallel - Within one layer routing takes place parallely 
+         - Inter layer sequential - between differnt layers, routing takes place sequentially.
+
+   2. Pre-processed route guides:
+      
+      ![image](https://github.com/user-attachments/assets/a156525b-869f-455f-ac0b-da7c888e352d)
+
+    3. Inter-guide connectivity:
+     
+     ![image](https://github.com/user-attachments/assets/9a942793-c38c-4d41-8b21-7ded167f0082)
+
+
+
+
+
+
+
+
+
 
 
 
