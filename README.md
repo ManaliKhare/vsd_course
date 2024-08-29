@@ -1057,8 +1057,33 @@ Setup slack:
 
  ## SKY_L3 - Design Rule Check
 
- 1. Rules to be followed while routing: Design Rule Checks (DRC)
+ 1. Rules to be followed while routing: Design Rule Checks (DRC): 3 Important Rules.
+     1. Wire width: Width of the wire cannot be less thana certain threshold value decided by the optical wavelength of the light used during lithography process. The wire wirecan exceed the threshold but cannot be less than a certain threshold.
+     2. Wire pitch: Minimum pitch (center to center distance between 2 wires) between two parallel running wires must be a certain value. This is also decided by the lithography process.
+     3. Wire Spacing: Minimum spacing between two wires cannot be less than a certain value otherwise the wires won't get printed properly on Silicon. Again this is decided as per the best possible achieved by lithography tools.
+        
+![image](https://github.com/user-attachments/assets/46ae6317-3a91-49f3-aa58-f7ff20969a65)
 
+ 2. We just mentioned 3 rules but in reality there are 1000's of rules that the routing algorithm must take care of while routing.
+ 3. Another DRC violation to be taken care of is signal shorts.
+
+  ![image](https://github.com/user-attachments/assets/16c4ba0c-b50e-4cda-89ea-e252b1c38be1)
+  
+     - Signal shorts need to be rectified as they can lead to functionality failures.
+     - We can solve the sgnal shorts by using a higher metal layer at the short point. If the two signal routes are shprting at Met2, we can use Met3 to go over Met2 for the 2nd route.
+     
+     ![image](https://github.com/user-attachments/assets/3f981419-02eb-46b4-a9f3-a6a2b1ca474a)
+     
+     - New DRC checks for rectifying shorts:
+        1. Via width betweem Mn & Mn+1 should be a certain minimum value. It can't be below this min value but can be more han this value. Again related to optical lithography.
+        2. Via spacing should not be less than a certain minimum value.
+
+ 4. After DRC, next step is parasitic extraction. RC extraction of the routes/ wires (SPEF), for further RLC network formation to analyze IR drop.
+ 
+
+ ## SKY130_D5_SK2 - Power Distribution Network and routing / SKY_L1 - Lab steps to build power distribution network
+
+1. 
 
 
 
