@@ -997,7 +997,7 @@ Setup slack:
    - ![image](https://github.com/user-attachments/assets/4d486aa6-63a1-49af-a0c1-cab2292400a2)
      
 # Sky130 Day 5 - Final steps for RTL2GDS using tritonRoute and openSTA
-## SKY130_D5_SK1 - Routing and design rule check (DRC) / SKY_L1 - Introduction to Maze Routing ÃÂ LeeÃÂs algorithm
+## SKY130_D5_SK1 - Routing and design rule check (DRC) / SKY_L1 - Introduction to Maze Routing And Lee's algorithm
 
 1. Till now we did the below steps
    - Synthesis
@@ -1023,6 +1023,44 @@ Setup slack:
    - Continue labelling of the adjacent grid boxes as next integer.
 
 ![image](https://github.com/user-attachments/assets/1fd05325-523f-40fc-99d3-dd9e798edd3c)
+
+## SKY_L2 - Lee's Algorithm conclusion
+
+1. Rounting Algorithm: Maze Routing - Lee's algorithm [Lee 1961]
+      - Continue labelling of the adjacent grid boxes as next integer till we reach the target cell T.
+      - After completing the grid labelling with inter=gers, we finally reach the target T.
+      - There are multiple ways now through the integers to reach from S to T.
+      - Option #1:
+        
+        ![image](https://github.com/user-attachments/assets/f027b5cb-64bc-44c0-9827-b2ce42210df3)
+      - Option #2:
+
+        ![image](https://github.com/user-attachments/assets/19c18c8c-47fb-497a-a88b-035fa236de49)
+      - Option #1 has got more bends (2 bends) than option #2 (1 bend)
+      - Any route with minimum or single bend are mostly preferred. So, Option #2 is prefrred. It is an L shape routing.
+      - Cons- This method takes lot of time & memory as it has to store the grid labels for millions of instances.
+      - Other algorithm's such as line search & steiner's tree are available. They all work on same principle.
+  
+2.  Another example to connect a FF to Bufffer.
+      - Option #1:
+
+        ![image](https://github.com/user-attachments/assets/1a2f4dec-acc5-47f6-a736-34b27a9ef1eb)
+
+       - Option #2:
+
+         ![image](https://github.com/user-attachments/assets/175001c6-3a0a-4268-80a6-e5cc5c939982)
+
+       - Again Option #2 is preferred as it has only 1 bend and is L shaped.
+ 3. Final routing looks like below. The connections are made in dark green color.
+
+  ![image](https://github.com/user-attachments/assets/0ea7c2a1-846e-473e-b145-ef3729e98e09)
+
+ ## SKY_L3 - Design Rule Check
+
+ 1. Rules to be followed while routing: Design Rule Checks (DRC)
+
+
+
 
 
 
