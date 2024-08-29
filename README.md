@@ -1148,7 +1148,76 @@ Setup slack:
 
     3. Inter-guide connectivity:
      
-     ![image](https://github.com/user-attachments/assets/9a942793-c38c-4d41-8b21-7ded167f0082)
+      ![image](https://github.com/user-attachments/assets/a2404a4b-83aa-4a12-849f-47af4b028734)
+
+   ## SKY_L2 - TritonRoute Feature2 & 3 - Inter-guide connectivity and intra- & inter-layer routing
+
+     1. Inter-guide connectivity:
+
+      ![image](https://github.com/user-attachments/assets/a2404a4b-83aa-4a12-849f-47af4b028734)
+
+      2. Intra-layer parallel & Inter-layer sequential panel routing
+
+      ![image](https://github.com/user-attachments/assets/09fa6e5c-0f36-429c-b001-a43e46039f1f)
+         - Rotuing in M3 will begin only if routing in M1 & M2 has completed. This is inter layer sequential panel routing
+
+   ## SKY_L3 - TritonRoute method to handle connectivity
+
+   1. TritonRoute requirements, output
+
+      ![image](https://github.com/user-attachments/assets/784d6b9c-2dad-4390-b827-4fabcf611a3b)
+      - no rdc violations
+      - preprocessed route guides are obtained after global routing by FastRoute.
+      - Defined the space in which detail routing should take place by preprocessed route guides
+     
+   2. TritonRoute - Handling connectivity
+
+      ![image](https://github.com/user-attachments/assets/f6cc1827-44cf-499b-9d92-d06d8d6fa31c)
+
+         - When two guides intersect, vias are placed on intersection.
+         - There are 5 points at which vias can be placed since there are 5 M2 tracks in overlapping region
+         - These 5 points are the access points (AP)
+         - In C case, there are 15 access points between M2 & M3
+         - All possible connecting points are access points.
+         - Group of access points for a case is called access point cluster.
+         - Goal of MILP is to find an optimal solution to connect two APC.
+
+      ## SKY_L4 - Routing topology algorithm and final files list post-route
+
+      1. Routing topology algorithm:
+     
+         ![image](https://github.com/user-attachments/assets/a44d205f-1c5a-4f57-863b-fca46743a30e)
+            - Minimum spanning tree algo followed to connect two APC's.
+              
+      2. ![image](https://github.com/user-attachments/assets/3ca504ca-6953-43a3-9943-c28d590c80ee)
+         - Inside ..../tmp/routing, we have 36-fastroute.guide
+         - Fastroute.guide is output of global routing.
+           
+          ![image](https://github.com/user-attachments/assets/6f7cbf49-1cd3-47f0-8d97-0d5f7d56027a)
+
+      3. Once routing is done, next is post routing STA. Before that, need to extract parasitics. Openlane done not have a SPEF extractor included.
+      4. After routing, we need to rectify DRC violations as well.
+      5. We would do spef extraction outside openlane. patn is ~/Desktop/work/tools/SPEF_EXTRACTOR
+      6. Command to run spef extraction:
+          - python3 main.py path_to_merged.lef path_to_routing.def
+      7. The '*diodes.v' netlist inside synthesis directory has antenna diodes placement.
+      8. The '*preroute.v' netlist is used for STA post routing along wiht spef.
+
+         ![image](https://github.com/user-attachments/assets/cf63038d-2ec9-48d9-82ab-9bd4451dcf6b)
+
+         # This was the entire PNR flow of picorv32a
+
+
+
+        
+           
+
+
+
+
+
+      
+
 
 
 
