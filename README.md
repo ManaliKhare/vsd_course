@@ -996,17 +996,33 @@ Setup slack:
 5. To insert the *clkbuf_1 back to the clock buffers list, below are the steps
    - ![image](https://github.com/user-attachments/assets/4d486aa6-63a1-49af-a0c1-cab2292400a2)
      
+# Sky130 Day 5 - Final steps for RTL2GDS using tritonRoute and openSTA
+## SKY130_D5_SK1 - Routing and design rule check (DRC) / SKY_L1 - Introduction to Maze Routing ÃÂ LeeÃÂs algorithm
 
+1. Till now we did the below steps
+   - Synthesis
+   - Floorplan
+   - Placement
+   - CTS
+   - STA
 
+2. The final step is Routing, that is laying down the data paths to establish connectivity. The routing algorithm has to fid the best possible way to connect towo end points.
 
+![image](https://github.com/user-attachments/assets/71cf4aee-f0d2-428e-82f9-a2a0c9ad9187)
 
+3. Rounting Algorithm: Maze Routing - Lee's algorithm [Lee 1961]
 
+![image](https://github.com/user-attachments/assets/1700cc2f-f90a-4fd1-a365-e5625731fd0d)
 
+   - The connection is to be made from cell 1 to cell 2.
+   - The routing algorithm has to come up with the best possible way to connect 1-2, the shortest way with least no. of twists & turns, avoiding the area of blocakage where the pre-placed cells are present.
+   - Routing grid builds a routing grid of std dimensions in the background.
+   - Label the adjacent grids (only hori & vertuical) to the source point S. Label it at '1'.
+   - Now the grids adjacent to label 1 are labelled as next integer '2'.
+   - Again adjacent grids to grid box 2 is labelled as next integer '3'.
+   - Continue labelling of the adjacent grid boxes as next integer.
 
-
-
-
-
+![image](https://github.com/user-attachments/assets/1fd05325-523f-40fc-99d3-dd9e798edd3c)
 
 
 
